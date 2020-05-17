@@ -14,7 +14,8 @@ class CarService {
     }
 
     addCar(car) {
-        this.carsToRepair.push(car);
+        // Ternary Operator
+        car.brand === 'toyota' ? console.log('I can not to add toyota!!!!') : this.carsToRepair.push(car);
     }
 
     displayCustomName() {
@@ -22,7 +23,6 @@ class CarService {
     }
 
     displayAllCars() {
-
         forEach(this.carsToRepair, (car) => {
             this.displayCustomName();
             car.displayCarInformations();
@@ -31,6 +31,8 @@ class CarService {
         //     car.displayCarInformations();
         // });
     }
+
+    getAllCars = () => this.carsToRepair;
 }
 
 module.exports = CarService;
