@@ -17,14 +17,19 @@ class CarService {
         this.carsToRepair.push(car);
     }
 
+    displayCustomName() {
+        console.log('I am custom name function');
+    }
+
     displayAllCars() {
-        debugger;
-        forEach(this.carsToRepair, function (car) {
+
+        forEach(this.carsToRepair, (car) => {
+            this.displayCustomName();
             car.displayCarInformations();
         });
-        /*this.carsToRepair.forEach(function(car) {
-            car.displayCarInformations();
-        });*/
+        // this.carsToRepair.forEach(function(car) {
+        //     car.displayCarInformations();
+        // });
     }
 }
 
