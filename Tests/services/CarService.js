@@ -1,3 +1,10 @@
+function forEach(array, callbackFunction) {
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+        callbackFunction(element);
+    }
+}
+
 class CarService {
     constructor(name, country) {
         this.name = name;
@@ -11,9 +18,13 @@ class CarService {
     }
 
     displayAllCars() {
-        this.carsToRepair.forEach(function(car) {
+        debugger;
+        forEach(this.carsToRepair, function (car) {
             car.displayCarInformations();
         });
+        /*this.carsToRepair.forEach(function(car) {
+            car.displayCarInformations();
+        });*/
     }
 }
 
