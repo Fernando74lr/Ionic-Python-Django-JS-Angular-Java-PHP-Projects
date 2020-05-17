@@ -7,3 +7,5 @@ const car2 = new Car('ford', 'fiesta', 2000);
 
 carService.addCar(car1);
 carService.addCar(car2);
+
+carService.displayAllCars();

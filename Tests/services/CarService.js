@@ -9,6 +9,12 @@ class CarService {
     addCar(car) {
         this.carsToRepair.push(car);
     }
+
+    displayAllCars() {
+        this.carsToRepair.forEach(function(car) {
+            car.displayCarInformations();
+        });
+    }
 }
 
 module.exports = CarService;
