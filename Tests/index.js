@@ -4,8 +4,10 @@ const CarService = require('./services/CarService.js');
 
 const carService = new CarService('SuperCars', 'Spain, Malaga');
 
-carService.getSecretsDocuments(function(secretDocs) {
-    const secretDocuments = secretDocs;
+carService.getSecretsDocuments().then((superSecretDocuments) => {
+    console.log(superSecretDocuments);
+}).catch((err) => {
+    console.log(err);
 });
 
 

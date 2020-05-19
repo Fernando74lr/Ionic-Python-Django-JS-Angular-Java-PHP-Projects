@@ -1,3 +1,5 @@
+const Promise = require('../Promise.js');
+
 function forEach(array, callbackFunction) {
     for (let i = 0; i < array.length; i++) {
         const element = array[i];
@@ -34,13 +36,13 @@ class CarService {
 
     getAllCars = () => this.carsToRepair;
 
-    getSecretsDocuments(callbackFunction) {
-        let secretDocs = '';
-        setTimeout(function() {
-            secretDocs = 'Super secret Docs, do not share.';
-            callbackFunction(secretDocs);
-        }, 2000);
-        return secretDocs;
+    getSecretsDocuments() {
+        return new Promise((resolve, reject) => {
+            setTimeout(function() {
+                let secretDocs = 'Super secret Docs, do not share.';
+                reject(secretDocs);
+            }, 2000);
+        });
     }
 }
 
