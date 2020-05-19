@@ -1,4 +1,5 @@
 const Car = require('./Car.js');
+const FancyCar = require('./FancyCar.js');
 const CarService = require('./services/CarService.js');
 
 const carService = new CarService('SuperCars', 'Spain, Malaga');
@@ -8,6 +9,8 @@ const car2 = new Car('ford', 'fiesta', 2000);
 const car3 = new Car('fiat', 'punto', 2011);
 const car4 = new Car('toyota', 'yaris', 2003);
 
+const car5 = new FancyCar('mercedes', 'benz', 2018);
+car5.displayCarInformations();
 
 carService.addCar(car1);
 carService.addCar(car2);
