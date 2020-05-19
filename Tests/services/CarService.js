@@ -33,6 +33,15 @@ class CarService {
     }
 
     getAllCars = () => this.carsToRepair;
+
+    getSecretsDocuments(callbackFunction) {
+        let secretDocs = '';
+        setTimeout(function() {
+            secretDocs = 'Super secret Docs, do not share.';
+            callbackFunction(secretDocs);
+        }, 2000);
+        return secretDocs;
+    }
 }
 
 module.exports = CarService;
