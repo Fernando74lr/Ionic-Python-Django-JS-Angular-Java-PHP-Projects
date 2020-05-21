@@ -4,13 +4,24 @@ const CarService = require('./services/CarService.js');
 
 const carService = new CarService('SuperCars', 'Spain, Malaga');
 
-carService.getSecretsDocuments().then((superSecretDocuments) => {
-    console.log(superSecretDocuments);
-}).catch((err) => {
-    console.log(err);
-});
+// PROMISES
+// carService.getSecretsDocuments().then((superSecretDocuments) => {
+//     console.log(superSecretDocuments);
+// }).catch((err) => {
+//     console.log(err);
+// });
 
+const docObservable = carService.getSecretsDocuments();
 
+docObservable.subscribe({
+    next: (secretDocs) => {
+        console.log(secretDocs);
+    },
+    error: (error) => {
+        console.log(error);
+    },
+    complete: () => {}
+})
 
 /*
 const car1 = new Car();
