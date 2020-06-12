@@ -1,0 +1,12 @@
+La bodega contiene 5 cajas grandes. En cada una hay diferentes cosas.
+En la caja 1 hay 2 pelotas.
+En la caja 2 hay 5 cartas.
+En la caja 3 hay 1 abrelatas.
+En la caja 4 hay 2 libros.
+En la caja 5 hay 3 zapatos.
+Todas las cajas tienen etiquetas para conocer su contenido.
+La caja 4 tiene una etiqueta extra donde vienen los nombres de los libros.
+La caja 1 y la 3 son de color blanco.
+La caja 2 es color azul.
+La caja 4 y 5 con negras.
+Todas las cajas estan cerradas.
