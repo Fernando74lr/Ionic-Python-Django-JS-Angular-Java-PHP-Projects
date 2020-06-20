@@ -1,0 +1,31 @@
+body { 
+    background-color: #21242b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+    flex-direction: column;
+}
+
+#start_btn {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+#random_choose {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#random_choose p {
+    font-size: 50px;
+}
+
+#random_choose {
+    background-color: #f7b031;
+    border-radius: 5px;
+    width: 650px;
+    height: 350px;
+}
