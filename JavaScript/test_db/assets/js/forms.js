@@ -12,6 +12,10 @@ function validateForm(e) {
         password_repeat = document.querySelector('#password_repeat').value,
         action = document.querySelector('#action').value;
 
+    if (password_repeat === 'null') {
+        password_repeat = password;
+    }
+
     if (user === '' || password === '' || password_repeat === '') {
         // The validation failed, fields are incomplete.
         errorMessage('fields');
@@ -39,26 +43,29 @@ function validateForm(e) {
                     var response = JSON.parse(answer);
                     console.log(response);
                     // If the response is correct.
-                    debugger;
                     if (response.response === 'correct') {
                         if (response.action === 'create') {
                             // New user.
-                            successMessage('user');
+                            successMessage('user', response.name);
                         } else if (response.action === 'login') {
                             // Log in.
-                            successMessage('login');
+                            successMessage('login', response.name);
                         }
                     } else {
-                        // There was an error.
-                        errorMessage('generic');
+                        // User already taken.
+                        if (response.response === 'Wrong password') {
+                            errorMessage('wrong_data');
+                        } else {
+                            errorMessage('user');
+                        }
                     }
                 }
             }
             // Send the request.
             xhr.send(data);
         } else {
-            // There was an error.
-            errorMessage('generic');
+            // Passwords are not the same.
+            errorMessage('passwords');
         }
     }
 }
@@ -68,35 +75,58 @@ function errorMessage(error) {
         case 'fields':
             Swal.fire({
                 icon: 'error',
-                title: '¡Error!',
+                title: 'Error',
                 text: 'You must fill up all fields'
             });
         break;
         
-        case 'generic':
+        case 'user':
             Swal.fire({
                 icon: 'error',
-                title: '¡Error!',
-                text: 'Ha ocurrido un error'
+                title: 'Error',
+                text: 'User name already used'
             });
         break;
+
+        case 'passwords':
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'The passwords are not equals'
+            });
+        break;     
+        
+        case 'wrong_data':
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Wrong user or password'
+            });
+        break; 
     }
 }
 
-function successMessage(success) {
+function successMessage(success, name) {
     switch (success) {
         case 'user':
             Swal.fire({
                 icon: 'success',
                 title: 'User created',
-                text: 'The user was created successfully'
-            }); 
+                text: `The user '${name}' was created successfully`
+            })
+            .then(result => {
+                if (result.value) {
+                    // Redirect with JavaScript.
+                    //The user doesn't have to do anything.
+                    window.location.href = 'login.php'
+                };
+            });
         break;
         
         case 'login':
             Swal.fire({
                 icon: 'success',
-                title: 'Login success',
+                title: `Welcome ${name}!`,
                 text: 'Press OK to open dashboard'
             })
             .then(result => {

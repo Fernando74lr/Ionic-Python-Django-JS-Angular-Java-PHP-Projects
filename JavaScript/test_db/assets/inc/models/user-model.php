@@ -29,11 +29,12 @@
             $stmt->execute();
 
             # Give a custom answer.
-            if ($stmt->affected_rows) {
+            if ($stmt->affected_rows > 0) {
                 $response = array( 
                     'response' => 'correct',
                     # Para acceder al ID.
                     'id_insertado' => $stmt->insert_id,
+                    'name' => $user,
                     'action' => $action
                 );
             } else {
@@ -61,7 +62,7 @@
     # Log in users.
     if ($action === 'login') {
         # Import the connection.
-        include './functions/connection.php';
+        include '../functions/connection.php';
 
         # Select the user from the Data Base.
         try {
