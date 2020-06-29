@@ -1,0 +1,27 @@
+body { 
+    background-color: #21242b!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+    flex-direction: column;
+}
+
+#user {
+    border-radius: 5px;
+    text-align: center;
+    font-style: italic;
+}
+
+#projects {
+    width: 800px;
+}
+
+.text {
+    color: #ffffff;
+}
+
+.card {
+    border-radius: 5px;
+    background-color: #f7b031!important;
+}
