@@ -1,2 +1,2 @@
-# Knowledge-Refresher-JS
-Brief refresh about basic concepts of JavaScript before getting started with Angular and React
+# Little_Py_Js_Projects
+Little Javascript and Python projects
