@@ -1,5 +1,11 @@
 import datetime
 
+# QUICK EVENT
+def quickAdd(service):
+    created_event = service.events().quickAdd(calendarId='primary', text='Appointment at Somewhere 11:20pm-11:25pm').execute()
+    # Message return execution.
+    print('Added quick event:', created_event['id'])
+
 # CREATING EVENTS
 def createEvent(service):
     event_title = input('Event title: ')
