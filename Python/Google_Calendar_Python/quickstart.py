@@ -3,19 +3,19 @@ from res.connection import service
 
 def main():
     # CREATE
-     createEvent(service)
+    # createEvent(service)
 
     # READ
-     readEvent(service)
+    # readEvent(service)
 
     # UPDATE
-     updateEvent(service)
+    # updateEvent(service)
 
     # DELETE
-     deleteEvent(service)
+    # deleteEvent(service)
     
     # QUICK EVENT
-     quickAdd(service)
+    # quickAdd(service)
 
 if __name__ == '__main__':
     main()
