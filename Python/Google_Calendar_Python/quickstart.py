@@ -13,7 +13,7 @@ def main():
 
     # DELETE
     # deleteEvent(service)
-    
+
     # QUICK EVENT
     # quickAdd(service)
 

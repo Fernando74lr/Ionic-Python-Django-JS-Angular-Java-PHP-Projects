@@ -50,7 +50,7 @@ def readEvent(service):
         print('No upcoming events found.')
     for event in events:
         start = event['start'].get('dateTime', event['start'].get('date'))
-        print(start, event['summary'], '| id: ', event['id'])
+        print(start, event['summary'])
 
 # UPDATE EVENTS
 def updateEvent(service):
