@@ -12,13 +12,8 @@ def main():
     updateEvent(service)
 
     # DELETE
-<<<<<<< HEAD
-    # deleteEvent(service)
+     deleteEvent(service)
 
-=======
-    deleteEvent(service)
-    
->>>>>>> d284e008146331b5e74e6fd6634d0e15dd45be27
     # QUICK EVENT
     quickAdd(service)
 
