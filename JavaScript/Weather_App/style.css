@@ -3,11 +3,12 @@
 }
 
 body{
-    background-color: #293251;
+    background-color: #21242b;
 }
 
 .container{
-    width: 300px;    
+    width: 300px;
+    height: 300px;   
     background-color: #FFF;
     
     display: block;
@@ -28,7 +29,7 @@ body{
     padding: 15px;
     margin: 0 auto;
     font-size: 1.2em;
-    color: #293251;
+    color: #21242b;
 }
 
 .notification{
@@ -42,6 +43,7 @@ body{
     margin: 0;
     text-align: center;
     padding: 10px 0;
+    height: 15px;
 }
 
 .weather-container{
@@ -68,7 +70,7 @@ body{
 .temperature-value p{
     padding: 0;
     margin: 0;
-    color: #293251;
+    color: #21242b;
     font-size: 4em;
     text-align: center;
     cursor: pointer;
@@ -79,7 +81,7 @@ body{
 }
 
 .temperature-value span{
-    color: #293251;
+    color: #21242b;
     font-size: 0.5em;
 }
 
@@ -90,7 +92,7 @@ body{
 .temperature-description p{
     padding: 8px;
     margin: 0;
-    color: #293251;
+    color: #21242b;
     text-align: center;
     font-size: 1.2em;
 }
@@ -102,7 +104,7 @@ body{
 .location p{
     margin: 0;
     padding: 0;
-    color: #293251;
+    color: #21242b;
     text-align: center;
     font-size: 0.8em;
 }
