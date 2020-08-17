@@ -1,4 +1,4 @@
-// Elements.
+// Elements. 
 let title = document.getElementById('title');
 let description = document.getElementById('description');
 
