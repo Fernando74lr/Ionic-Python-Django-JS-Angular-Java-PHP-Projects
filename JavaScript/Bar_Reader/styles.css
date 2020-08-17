@@ -2,4 +2,9 @@ body {
     display: grid;
     justify-content: center;
     text-align: center;
+    background-color: rgba(242, 102, 39, 0.8);
+}
+
+.drawingBuffer {
+    display: none;
 }
