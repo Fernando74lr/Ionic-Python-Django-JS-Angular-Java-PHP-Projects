@@ -1,6 +1,11 @@
 // Elements. 
-let title = document.getElementById('title');
-let description = document.getElementById('description');
+let title = $('#title');
+let description = $('#description');
+let img_1 = $('#img_1');
+let img_2 = $('#img_2');
+let img_3 = $('#img_3');
+let carousel = $('#carousel');
+let camera = $('#camera');
 
 // Initialization of Quagga library.
 Quagga.init({
@@ -41,10 +46,21 @@ Quagga.init({
 Quagga.onDetected(data => readItem(data.codeResult.code));
 
 function readItem(data) {
+    // Stop camera
+    Quagga.stop()
+    
+    // Hide elements
+    camera.addClass('hide');
+    carousel.removeClass('hide');
+
+    // Manage data
     ITEMS.forEach(item => {
         if (item.code == data) {
-            title.innerHTML = `${item.code}`;
-            description.innerHTML = `${item.description}`;
+            title.html(`${item.code}`);
+            description.html(`${item.description}`);
+            img_1.attr('src', `${item.examples[0]}`);
+            img_2.attr('src', `${item.examples[1]}`);
+            img_3.attr('src', `${item.examples[2]}`);
         }
     });
 }
