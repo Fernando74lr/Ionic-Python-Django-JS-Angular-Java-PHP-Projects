@@ -46,14 +46,14 @@ Quagga.init({
 Quagga.onDetected(data => readItem(data.codeResult.code));
 
 function readItem(data) {
-    // Stop camera
+    // Stop camera.
     Quagga.stop()
     
-    // Hide elements
+    // Hide elements.
     camera.addClass('hide');
     carousel.removeClass('hide');
 
-    // Manage data
+    // Manage data.
     ITEMS.forEach(item => {
         if (item.code == data) {
             title.html(`${item.code}`);
