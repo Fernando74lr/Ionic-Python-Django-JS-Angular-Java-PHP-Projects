@@ -1,5 +1,7 @@
 import datetime
 
+# CRUD FUNCTIONS
+
 # QUICK EVENT
 def quickAdd(service, event):
     created_event = service.events().quickAdd(calendarId='primary', text=event).execute()
