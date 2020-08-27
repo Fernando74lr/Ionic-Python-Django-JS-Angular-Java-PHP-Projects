@@ -1,4 +1,5 @@
 <?php
+    // Move all this mini project to its own php folder
     include 'assets/inc/functions/sessions.php';
     include 'assets/inc/functions/functions.php';
     include 'assets/inc/templates/header.php';
