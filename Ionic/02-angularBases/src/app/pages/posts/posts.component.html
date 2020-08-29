@@ -3,10 +3,16 @@
 <h1 class="mt-5">Posts</h1>
 
 <ul class="list-group mb-5">
-    <li *ngFor="let message of messages | async" class="list-group-item">
+
+    <!-- We send info from father to child (post.component.html) -->
+    <!-- We can reuse this app-post -->
+    <app-post *ngFor="let message of messages | async"
+              [message]="message"></app-post>
+
+    <!--<li *ngFor="let message of messages | async" class="list-group-item">
         <h2>{{ message.title }}</h2>
         <p>
             {{ message.body }}
         </p>
-    </li>
+    </li>-->
 </ul>
