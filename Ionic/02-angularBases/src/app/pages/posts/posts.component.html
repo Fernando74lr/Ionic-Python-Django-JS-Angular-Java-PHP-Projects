@@ -7,7 +7,8 @@
     <!-- We send info from father to child (post.component.html) -->
     <!-- We can reuse this app-post -->
     <app-post *ngFor="let message of messages | async"
-              [message]="message"></app-post>
+              [message]="message" 
+              (clickPost)="escuchaClick( $event )"></app-post>
 
     <!--<li *ngFor="let message of messages | async" class="list-group-item">
         <h2>{{ message.title }}</h2>
