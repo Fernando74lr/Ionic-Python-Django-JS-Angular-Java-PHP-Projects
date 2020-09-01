@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-title>Componentes</ion-title>
   </ion-toolbar>
@@ -6,12 +6,25 @@
 
 <ion-content>
 
-  <ion-button routerLink="/alert">
+  <!-- List -->
+  <ion-list>
+    <ion-item routerLink="/alert" detail>
+      <ion-label>Alert</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Action Sheet</ion-label>
+    </ion-item>
+  </ion-list>
+
+
+  <!-- Buttons 
+  <ion-button>
     Alert
   </ion-button>
 
   <ion-button routerLink="/action-sheet">
     Action-Sheet
-  </ion-button>
+  </ion-button>-->
+
 
 </ion-content>
