@@ -27,6 +27,11 @@ export class InicioPage implements OnInit {
       icon: 'earth-outline',
       name: 'Buttons',
       redirectTo: '/botones'
+    },
+    {
+      icon: 'football-outline',
+      name: 'Cards',
+      redirectTo: '/card'
     }
   ];
 
