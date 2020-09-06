@@ -32,7 +32,7 @@ public class AnimalFrame extends JFrame {
           }
         });
         // Add it to the SOUTH of the Border Layout
-        add(button, BorderLayout.SOUTH);
+        add(button, BorderLayout.);
         // Creates the Panel
         panel = new AnimalPanel(1000, 700);
         // Adds the panel to the Frame
