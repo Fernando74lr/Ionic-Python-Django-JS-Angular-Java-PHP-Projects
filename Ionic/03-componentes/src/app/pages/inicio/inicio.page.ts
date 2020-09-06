@@ -42,6 +42,11 @@ export class InicioPage implements OnInit {
       icon: 'calendar-outline',
       name: 'Date-Time',
       redirectTo: '/date-time'
+    },
+    {
+      icon: 'attach-outline',
+      name: 'Fabs',
+      redirectTo: '/fab'
     }
   ];
 
