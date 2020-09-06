@@ -3,9 +3,19 @@
 
 <ion-content class="ion-padding">
   <ion-list>
+
+    <ion-list-header>
+      <ion-label>Birth data</ion-label>
+    </ion-list-header>
+
     <ion-item>
       <ion-label>Birthdate</ion-label>
-      <ion-datetime></ion-datetime>
+      <ion-datetime placeholder="DD/MM/YY"
+                    display-format="YYYY MMM DD"
+                    cancelText="Cancelar"
+                    [ngModel]="birthdate.toISOString()"
+                    (ionChange)="changeDate($event)">
+      </ion-datetime>
     </ion-item>
   </ion-list>
 </ion-content>
