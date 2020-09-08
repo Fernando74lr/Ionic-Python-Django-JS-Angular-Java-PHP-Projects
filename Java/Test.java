@@ -1,4 +1,4 @@
-/*public class Test {
+public class Test {
 
     // Split the str by commas
     static String[] getValues(String str) {
@@ -14,8 +14,8 @@
           System.out.println(res[i]);
        }
     }
-}*/
-
+}
+/*
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -62,4 +62,4 @@ public class Test {
       frame.setVisible(true);
    }
 
-}
+}*/
