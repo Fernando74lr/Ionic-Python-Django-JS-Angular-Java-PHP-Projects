@@ -47,6 +47,11 @@ export class InicioPage implements OnInit {
       icon: 'attach-outline',
       name: 'Fabs',
       redirectTo: '/fab'
+    },
+    {
+      icon: 'apps-outline',
+      name: 'Grid',
+      redirectTo: '/grid'
     }
   ];
 
