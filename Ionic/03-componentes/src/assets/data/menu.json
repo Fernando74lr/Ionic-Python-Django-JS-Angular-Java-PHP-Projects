@@ -68,5 +68,10 @@
       "icon": "construct-outline",
       "name": "Loading",
       "redirectTo": "/loading"
+    },
+    {
+      "icon": "analytics-outline",
+      "name": "Modal",
+      "redirectTo": "/modal"
     }
 ]

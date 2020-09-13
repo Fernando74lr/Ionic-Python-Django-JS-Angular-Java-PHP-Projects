@@ -1,0 +1,16 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title slot="start" class="ion-text-capitalize">{{ nombre }} - {{ pais }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- First button-->
+  <ion-button (click)="goBackWithArgs()" color="primary" expand="full" fill="clear" shape="round">
+    Go back with args
+  </ion-button>
+  <!-- Second button-->
+  <ion-button (click)="goBackWithoutArgs()" color="danger" expand="full" fill="clear" shape="round">
+    Go back without args
+  </ion-button>
+</ion-content>
