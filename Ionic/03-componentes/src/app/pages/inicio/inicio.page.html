@@ -1,12 +1,15 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
+      <!-- Easy way for toggle the menu -->
       <!--<ion-button (click)="toggleMenu()">
         <ion-icon slot="icon-only" name="menu"></ion-icon>
       </ion-button>-->
+
+      <!-- Easiest way for toggle the menu -->
       <ion-menu-button color="primary" menu="firstMenu"></ion-menu-button>
     </ion-buttons>
-    <ion-title>Componentes</ion-title>
+    <ion-title color="primary">Componentes</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,8 +17,8 @@
 
   <!-- List -->
   <ion-list>
-    <ion-item *ngFor="let component of componentes" [routerLink]="component.redirectTo" detail>
-      <ion-icon slot="start" [name]="component.icon"></ion-icon>
+    <ion-item *ngFor="let component of componentes | async" [routerLink]="component.redirectTo" detail>
+      <ion-icon slot="start" [name]="component.icon" color="primary"></ion-icon>
       <ion-label>{{ component.name }}</ion-label>
     </ion-item>
   </ion-list>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { Observable } from 'rxjs';
+import { Componente } from 'src/app/interfaces/interfaces';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-inicio',
@@ -8,82 +11,12 @@ import { MenuController } from '@ionic/angular';
 })
 export class InicioPage implements OnInit {
 
-  componentes: Componente[] = [
-    {
-      icon: 'flame-outline',
-      name: 'Action Sheet',
-      redirectTo: '/action-sheet'
-    },
-    {
-      icon: 'cube-outline',
-      name: 'Alert',
-      redirectTo: '/alert'
-    },
-    {
-      icon: 'water-outline',
-      name: 'Avatar',
-      redirectTo: '/avatar'
-    },
-    {
-      icon: 'earth-outline',
-      name: 'Buttons',
-      redirectTo: '/botones'
-    },
-    {
-      icon: 'football-outline',
-      name: 'Cards',
-      redirectTo: '/card'
-    },
-    {
-      icon: 'checkmark-outline',
-      name: 'Checkbox',
-      redirectTo: '/checkbox'
-    },
-    {
-      icon: 'calendar-outline',
-      name: 'Date-Time',
-      redirectTo: '/date-time'
-    },
-    {
-      icon: 'attach-outline',
-      name: 'Fabs',
-      redirectTo: '/fab'
-    },
-    {
-      icon: 'apps-outline',
-      name: 'Grid',
-      redirectTo: '/grid'
-    },
-    {
-      icon: 'infinite-outline',
-      name: 'Infinit Scroll',
-      redirectTo: '/infinite-scroll'
-    },
-    {
-      icon: 'pencil-outline',
-      name: 'Inputs',
-      redirectTo: '/input'
-    },
-    {
-      icon: 'list-outline',
-      name: 'List',
-      redirectTo: '/list'
-    },
-    {
-      icon: 'bulb-outline',
-      name: 'Reorder',
-      redirectTo: '/list-reorder'
-    },
-    {
-      icon: 'construct-outline',
-      name: 'Loading',
-      redirectTo: '/loading'
-    }
-  ];
+  componentes: Observable<Componente[]>;
 
-  constructor(private menuCtrl: MenuController) { }
+  constructor(private menuCtrl: MenuController, private dataService: DataService) { }
 
   ngOnInit() {
+    this.componentes = this.dataService.getMenuOptions();
   }
 
   toggleMenu() {
@@ -92,8 +25,3 @@ export class InicioPage implements OnInit {
 
 }
 
-interface Componente {
-  icon: string;
-  name: string;
-  redirectTo: string;
-}
