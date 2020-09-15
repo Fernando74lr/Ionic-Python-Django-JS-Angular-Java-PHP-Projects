@@ -13,7 +13,7 @@
             ion-item) -->
       <ion-menu-toggle *ngFor="let component of componentes | async">
         <ion-item [routerLink]="component.redirectTo">
-          <ion-icon slot="start" [name]="component.icon"></ion-icon>
+          <ion-icon color="primary" slot="start" [name]="component.icon"></ion-icon>
           <ion-label>{{ component.name }}</ion-label>
         </ion-item>
       </ion-menu-toggle>

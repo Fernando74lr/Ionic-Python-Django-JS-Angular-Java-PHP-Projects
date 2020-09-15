@@ -9,6 +9,8 @@ export class ListReorderPage implements OnInit {
 
   personajes = ['Aquaman', 'Superman', 'Batman', 'Flash', 'Mujer Maravilla'];
 
+  toggle: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
@@ -27,6 +29,14 @@ export class ListReorderPage implements OnInit {
 
   onClick() {
     console.log(this.personajes);
+  }
+
+  toggleState() {
+    if (this.toggle) {
+      this.toggle = false;
+    } else {
+      this.toggle = true;
+    }
   }
 
 }
