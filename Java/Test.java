@@ -1,5 +1,5 @@
 public class Test {
-    // This is a test
+
     // Split the str by commas
     static String[] getValues(String str) {
         return str.split("[,]", 0);
