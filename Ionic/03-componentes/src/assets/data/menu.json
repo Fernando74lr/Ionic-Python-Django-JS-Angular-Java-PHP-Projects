@@ -78,5 +78,10 @@
       "icon": "water-outline",
       "name": "Popover",
       "redirectTo": "/popover"
+    },
+    {
+      "icon": "code-outline",
+      "name": "ProgressBar",
+      "redirectTo": "/progress"
     }
 ]
