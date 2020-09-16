@@ -73,5 +73,10 @@
       "icon": "analytics-outline",
       "name": "Modal",
       "redirectTo": "/modal"
+    },
+    {
+      "icon": "water-outline",
+      "name": "Popover",
+      "redirectTo": "/popover"
     }
 ]
