@@ -8,7 +8,7 @@
     <ion-title color="primary">Popover</ion-title>
 
     <ion-buttons slot="end">
-      <ion-button (click)="presentPopover()" color="primary">
+      <ion-button (click)="presentPopover($event)" color="primary">
         <ion-icon slot="icon-only" name="person-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -16,7 +16,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-button (click)="presentPopover()" expand="block" fill="clear" shape="round">
+  <ion-button (click)="presentPopover($event)" expand="block" fill="clear" shape="round">
     Click me
   </ion-button>
 </ion-content>
@@ -24,7 +24,7 @@
 <ion-footer>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button (click)="presentPopover()" color="primary">
+      <ion-button (click)="presentPopover($event)" color="primary">
         <ion-icon slot="icon-only" name="person-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
