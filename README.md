@@ -1,2 +1,2 @@
-# Little_Py_Js_Projects
-Little Javascript and Python projects
+# Ionic_Python_JS_Java_Projects
+Little ionic, python, javascript and java projects
