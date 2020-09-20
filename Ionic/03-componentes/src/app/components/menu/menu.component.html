@@ -11,7 +11,8 @@
       <!-- (ion-item must be inside the ion-menu-toggle
             and the ngFor must be in that instead of the 
             ion-item) -->
-      <ion-menu-toggle *ngFor="let component of componentes | async">
+      <ion-menu-toggle *ngFor="let component of componentes | async"
+                       autoHide="false">
         <ion-item [routerLink]="component.redirectTo">
           <ion-icon color="primary" slot="start" [name]="component.icon"></ion-icon>
           <ion-label>{{ component.name }}</ion-label>
