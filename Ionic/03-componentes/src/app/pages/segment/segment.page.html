@@ -9,16 +9,16 @@
   </ion-toolbar>
 
   <!-- Segment -->
-  <ion-segment value="todos" (ionChange)="segmentChanged($event)">
-    <ion-segment-button value="todos">
+  <ion-segment value="" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="">
       <ion-label>Todos</ion-label>
     </ion-segment-button>
   
-    <ion-segment-button value="DC Comics" (ionChange)="getDC()">
+    <ion-segment-button value="DC Comics" (ionChange)="segmentChanged($event)">
       <ion-label>DC Comics</ion-label>
     </ion-segment-button>
   
-      <ion-segment-button value="Marvel Comics" (ionChange)="getMarvel()">
+      <ion-segment-button value="Marvel Comics" (ionChange)="segmentChanged($event)">
       <ion-label>Marvel Comics</ion-label>
     </ion-segment-button>
   </ion-segment>

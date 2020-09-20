@@ -19,10 +19,6 @@ export class SegmentPage implements OnInit {
   }
 
   segmentChanged(event) {
-    console.log(event.detail.value);
+    this.company = event.detail.value;
   }
-
-  getDc = () => this.company = "DC";
-
-  getMarvel = () => this.company = "Marvel";
 }
