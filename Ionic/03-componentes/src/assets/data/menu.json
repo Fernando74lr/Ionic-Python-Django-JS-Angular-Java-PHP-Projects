@@ -104,4 +104,10 @@
       "name": "Slides",
       "redirectTo": "/slides"
     }
+    ,
+    {
+      "icon": "cog-outline",
+      "name": "Tabs",
+      "redirectTo": "/tabs"
+    }
 ]
