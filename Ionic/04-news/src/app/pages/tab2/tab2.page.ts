@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSegment } from '@ionic/angular';
+import { IonInfiniteScroll, IonSegment } from '@ionic/angular';
 import { Article } from 'src/app/interfaces/interfaces';
 import { NewsService } from 'src/app/services/news.service';
 
@@ -10,10 +10,11 @@ import { NewsService } from 'src/app/services/news.service';
 })
 export class Tab2Page implements OnInit {
 
+  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @ViewChild(IonSegment) segment: IonSegment;
 
   categories = ["business", "entertainment", "general", "health", "science", "sports", "technology"];
-  news: Article[]= [];
+  news: Article[] = [];
 
   constructor(private newsService: NewsService) { }
 
@@ -31,15 +32,28 @@ export class Tab2Page implements OnInit {
     // Reset the array.
     this.news = [];
     // Show news depending on the category.
-    this.loadNews(event.detail.value); 
+    this.loadNews(event.detail.value);
   }
 
-  loadNews(category: string) {
+  loadData(event) {
+    this.loadNews(this.segment.value, event);
+  }
+
+  loadNews(category: string, event?) {
     // Get the top headlines from the API using our service.
     this.newsService.getTopHeadlinesCategory(category)
       .subscribe(data => {
-        console.log(data);
-        this.news.push(...data.articles)
+        if (data.articles.length === 0) {
+          event.target.disabled = true;
+          event.target.complete();
+          return;
+        }
+        
+        this.news.push(...data.articles);
+        
+        if (event) {
+          event.target.complete();
+        }
       });
   }
 

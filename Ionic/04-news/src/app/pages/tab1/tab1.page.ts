@@ -26,11 +26,16 @@ export class Tab1Page implements OnInit {
   loadNews(event?) {
     // Get the news from the API.
     this.newsService.getTopHeadlines().subscribe(data => {
-      console.log('news', data);
+      if (data.articles.length === 0) {
+        event.target.disabled = true;
+        event.target.complete();
+        return;
+      }
+      
       this.news.push(...data.articles);
+
       if (event) {
         event.target.complete();
-        this.infiniteScroll.disabled = true;
       }
     });
   }
