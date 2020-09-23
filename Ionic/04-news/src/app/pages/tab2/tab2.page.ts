@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { IonSegment } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  @ViewChild(IonSegment) segment: IonSegment;
+
+  categories = ["business", "entertainment", "general", "health", "science", "sports", "technology"];
+
+  ionViewDidEnter() {
+    this.segment.value = this.categories[0];
+  }
 
 }
