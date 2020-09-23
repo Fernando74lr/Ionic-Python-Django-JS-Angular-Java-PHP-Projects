@@ -17,13 +17,16 @@ export class NewsService {
 
   constructor(private http: HttpClient) { }
 
-
+  private executeQuery<T>(query: string) {
+    query = apiUrl + query;
+    return this.http.get<T>(query, { headers });
+  }
 
   getTopHeadlines() {
-    return this.http.get<ResponseTopHeadlines>(`http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=3732d971e4b3426eb2937953ce806e5d`);
+    return this.executeQuery<ResponseTopHeadlines>(`/top-headlines?country=us`);
   }
 
   getTopHeadlinesCategory(category: string) {
-    return this.http.get('http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=3732d971e4b3426eb2937953ce806e5d');
+    return this.executeQuery<ResponseTopHeadlines>(`/top-headlines?country=us&category=${category}`);
   }
 }
