@@ -1,7 +1,7 @@
-public class RelojTh extends Thread {
+public class ClockThread extends Thread {
     
-	private int time, hora=0, min=0;  //Asignamos valores de tiempo iniciales
-	private int stop = 120;         	//Tiempo de ejecución
+	private int time, hora=0, min=0;  // Asignamos valores de tiempo iniciales
+	private int stop = 120;           // Tiempo de ejecución
     
 	public RelojTh(int time) {
     	this.time = time;
