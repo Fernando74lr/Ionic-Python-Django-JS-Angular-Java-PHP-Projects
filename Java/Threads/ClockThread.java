@@ -1,6 +1,5 @@
 public class ClockThread extends Thread {
-    
-	private int time, hora=0, min=0;  // Asignamos valores de tiempo iniciales
+   	private int time, hora=0, min=0;  // Asignamos valores de tiempo iniciales
 	private int stop = 120;           // Tiempo de ejecución
     
 	public RelojTh(int time) {
