@@ -7,22 +7,25 @@ import { Article } from '../interfaces/interfaces';
 })
 export class DataLocalService {
 
-  favorites: Article[] = [];
+  favoritesNews: Article[] = [];
 
-  constructor(private storage: Storage) { }
+  constructor(private storage: Storage) {
+    this.loadFavorite();
+  }
 
   saveNew(favoriteNew: Article) {
 
-    const exists = this.favorites.find(favNew => favNew.title === favoriteNew.title);
+    const exists = this.favoritesNews.find(favNew => favNew.title === favoriteNew.title);
 
     if (!exists) {
-      this.favorites.unshift(favoriteNew);
-      this.storage.set('Favorites', this.favorites);
+      this.favoritesNews.unshift(favoriteNew);
+      this.storage.set('Favorites', this.favoritesNews);
     }
   }
   
-  loadFavorite() {
-    
+  async loadFavorite() {
+    const favorites =  await this.storage.get('Favorites');
+    if (favorites) this.favoritesNews = favorites;
   }
 
 }
