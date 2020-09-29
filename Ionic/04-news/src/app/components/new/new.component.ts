@@ -3,6 +3,7 @@ import { Article } from 'src/app/interfaces/interfaces';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { ActionSheetController } from '@ionic/angular';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { DataLocalService } from 'src/app/services/data-local.service';
 
 @Component({
   selector: 'app-new',
@@ -16,7 +17,8 @@ export class NewComponent implements OnInit {
 
   constructor(private iab: InAppBrowser,
               private actionSheetCtrl: ActionSheetController,
-              private socialSharing: SocialSharing) { }
+              private socialSharing: SocialSharing,
+              private dataLocalService: DataLocalService) { }
 
   ngOnInit() {}
 
@@ -45,7 +47,8 @@ export class NewComponent implements OnInit {
         icon: 'star',
         cssClass: 'action-dark',
         handler: () => {
-          console.log('Favorite clicked');
+          console.log(this.new);
+          this.dataLocalService.saveNew(this.new);
         }
       }, {
         text: 'Cancel',
