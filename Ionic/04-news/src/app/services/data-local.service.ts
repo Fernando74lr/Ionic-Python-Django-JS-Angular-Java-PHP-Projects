@@ -28,4 +28,9 @@ export class DataLocalService {
     if (favorites) this.favoritesNews = favorites;
   }
 
+  removeNew(RemoveNew: Article) {
+    this.favoritesNews = this.favoritesNews.filter(favNew => favNew.title !== RemoveNew.title);
+    this.storage.set('Favorites', this.favoritesNews);
+  }
+
 }
