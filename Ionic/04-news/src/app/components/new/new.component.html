@@ -2,7 +2,7 @@
   <!-- Header -->
   <ion-card-header>
     <ion-card-subtitle>
-      <span class="text-primary">{{ index + 1 }}. {{ inFavorites }}</span>
+      <span class="text-primary">{{ index + 1 }}. </span>
       <span class="news-source-name">{{ new.source.name }}</span>
 
       <div class="new-more">
@@ -18,6 +18,7 @@
   <!-- Image -->
   <ion-img  *ngIf="new.urlToImage"
             (click)="openLink()"
+            class="animated fadeIn fast"
             [src]="new.urlToImage"></ion-img>
 
   <!-- Content -->

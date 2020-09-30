@@ -30,27 +30,19 @@ export class NewComponent implements OnInit {
 
   async openMenu() {
 
-    let saveRemoveButton;
+    let textFavorite = '', iconFavorite = '';
+    let saved: Boolean;
 
     if (this.inFavorites) {
-      // Remove from favorites
-      saveRemoveButton = {
-        text: 'Remove Favorite',
-        icon: 'trash',
-        cssClass: 'action-dark',
-        handler: () => {
-          this.dataLocalService.removeNew(this.new);
-        }
-      }
+      // Remove from favorites.
+      textFavorite = 'Remove Favorite';
+      iconFavorite = 'trash';
+      saved = false;
     } else {
-      saveRemoveButton = {
-        text: 'Favorite',
-        icon: 'star',
-        cssClass: 'action-dark',
-        handler: () => {
-          this.dataLocalService.saveNew(this.new);
-        }
-      }
+      // Add to favorites.
+      textFavorite = 'Favorite';
+      iconFavorite = 'star';
+      saved = true;
     }
 
     const actionSheet = await this.actionSheetCtrl.create({
@@ -67,8 +59,16 @@ export class NewComponent implements OnInit {
           );
         }
       },
-        saveRemoveButton
-      , {
+      {
+        text: `${textFavorite}`,
+        icon: `${iconFavorite}`,
+        cssClass: 'action-dark',
+        handler: () => {
+          this.inFavorites ? this.dataLocalService.removeNew(this.new) : this.dataLocalService.saveNew(this.new);
+          this.dataLocalService.favoriteSaved(saved);
+        }
+      },
+      {
         text: 'Cancel',
         icon: 'close',
         role: 'cancel',
