@@ -2,12 +2,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package simplecounter;
+ 
 
-/**
- *
- * @author rosaguadalupeparedesjuarez
- */
 public class SimpleCounter {
     
     private int c = 0;
