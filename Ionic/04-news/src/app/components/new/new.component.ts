@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Article } from 'src/app/interfaces/interfaces';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, Platform } from '@ionic/angular';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { DataLocalService } from 'src/app/services/data-local.service';
 
@@ -19,7 +19,8 @@ export class NewComponent implements OnInit {
   constructor(private iab: InAppBrowser,
               private actionSheetCtrl: ActionSheetController,
               private socialSharing: SocialSharing,
-              private dataLocalService: DataLocalService) { }
+              private dataLocalService: DataLocalService,
+              private platform: Platform) { }
 
   ngOnInit() {}
 
@@ -51,12 +52,7 @@ export class NewComponent implements OnInit {
         icon: 'share',
         cssClass: 'action-dark',
         handler: () => {
-          this.socialSharing.share(
-            this.new.title,
-            this.new.source.name,
-            '',
-            this.new.url
-          );
+          this.shareNews();
         }
       },
       {
@@ -79,6 +75,31 @@ export class NewComponent implements OnInit {
       }]
     });
     await actionSheet.present();
+  }
+
+  shareNews() {
+
+    if (this.platform.is('cordova')) {
+      this.socialSharing.share(
+        this.new.title,
+        this.new.source.name,
+        '',
+        this.new.url
+      );
+    } else {
+      if (navigator['share']) {
+        navigator['share']({
+          title: this.new.title,
+          text: this.new.description,
+          url: this.new.url,
+        })
+          .then(() => console.log('Successful share'))
+          .catch((error) => console.log('Error sharing', error));
+      } else {
+        console.log("No se pudo compartir porque el navegador no lo soporta.")
+      }
+    }
+
   }
 
 }
