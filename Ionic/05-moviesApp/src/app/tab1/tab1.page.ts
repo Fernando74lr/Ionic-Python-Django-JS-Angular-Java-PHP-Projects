@@ -10,6 +10,7 @@ import { MoviesService } from '../services/movies.service';
 export class Tab1Page implements OnInit {
 
   recentMovies: Movie[] = [];
+  popular: Movie[] = [];
 
   constructor(private movieService: MoviesService) {}
 
@@ -19,6 +20,10 @@ export class Tab1Page implements OnInit {
         console.log('Response', response);
         this.recentMovies = response.results;
       });
+
+      this.movieService.getPopular().subscribe(response => {
+        this.popular = response.results;
+      })
   }
 
 }

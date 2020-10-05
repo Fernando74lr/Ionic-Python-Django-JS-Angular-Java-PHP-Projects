@@ -6,7 +6,7 @@
     </ion-row>
   </ion-grid>
 
-  <app-slideshow-backdrop [recentMovies]="recentMovies"></app-slideshow-backdrop>
+  <app-slideshow-backdrop [movies]="recentMovies"></app-slideshow-backdrop>
 
   <ion-grid fixed>
     <ion-row>
@@ -14,7 +14,14 @@
     </ion-row>
   </ion-grid>
 
-  <app-slideshow-poster [recentMovies]="recentMovies"></app-slideshow-poster>
+  <app-slideshow-poster [movies]="recentMovies"></app-slideshow-poster>
 
-  
+  <ion-grid fixed>
+    <ion-row>
+      <h2><b>Popular</b></h2>
+    </ion-row>
+  </ion-grid>
+
+  <app-slideshow-poster [movies]="popular"></app-slideshow-poster>
+
 </ion-content>
