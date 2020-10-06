@@ -15,15 +15,27 @@ export class Tab1Page implements OnInit {
   constructor(private movieService: MoviesService) {}
 
   ngOnInit() {
+    // Get movies based on the date from API.
     this.movieService.getFeature()
       .subscribe(response => {
-        console.log('Response', response);
         this.recentMovies = response.results;
-      });
+    });
 
-      this.movieService.getPopular().subscribe(response => {
-        this.popular = response.results;
-      })
+    this.getPopular();
+
+  }
+
+  loadMore() {
+    this.getPopular();
+  }
+
+  // Get popular movies from API.
+  getPopular() {
+    this.movieService.getPopular()
+      .subscribe(response => {
+      const arrTemp = [...this.popular, ...response.results];
+      this.popular = arrTemp;
+    })
   }
 
 }
