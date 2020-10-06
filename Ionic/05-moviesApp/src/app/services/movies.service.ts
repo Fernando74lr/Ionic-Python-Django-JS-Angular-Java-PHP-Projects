@@ -11,6 +11,8 @@ const apiKey = environment.apiKey;
 })
 export class MoviesService {
 
+  private popularPage = 0;
+
   constructor(private http: HttpClient) { }
 
   private executeQuery<T>(query: string) {
@@ -21,7 +23,10 @@ export class MoviesService {
   }
 
   getPopular() {
-    const query = '/discover/movie?sort_by=popularity.desc';
+
+    this.popularPage++;
+
+    const query = `/discover/movie?sort_by=popularity.desc&page=${this.popularPage}`;
 
     return this.executeQuery<ResponseMDB>(query);
   }
@@ -31,7 +36,7 @@ export class MoviesService {
     const today = new Date();
     const lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
     const month = today.getMonth() + 1;
-    let monthString;
+    let monthString: any;
 
     if (month < 10) {
       monthString = '0' + month;
