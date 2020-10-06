@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { Movie } from 'src/app/interfaces/interfaces';
+import { DetailComponent } from '../detail/detail.component';
 
 @Component({
   selector: 'app-slideshow-even',
@@ -17,12 +19,23 @@ export class SlideshowEvenComponent implements OnInit {
     spaceBetween: -10
   };
 
-  constructor() { }
+  constructor(private modalCtrl: ModalController) { }
 
   ngOnInit() {}
 
   onClick() {
     this.loadMore.emit();
+  }
+
+  async showDetail(id: string) {
+    const modal = await this.modalCtrl.create({
+      component: DetailComponent,
+      componentProps: {
+        id
+      }
+    });
+
+    modal.present();
   }
 
 }

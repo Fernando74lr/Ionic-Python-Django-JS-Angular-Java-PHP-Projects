@@ -3,7 +3,7 @@
 
     <ion-row>
       <ion-col size="12" *ngFor="let movie of evenMovies">
-        <ion-card>
+        <ion-card (click)="showDetail(movie.id)">
           <img [src]="movie.poster_path | image" alt="" class="poster">
         </ion-card>
       </ion-col>
