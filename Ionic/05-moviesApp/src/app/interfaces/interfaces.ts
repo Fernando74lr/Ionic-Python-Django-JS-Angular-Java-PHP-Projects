@@ -75,7 +75,7 @@ interface Genre {
 }
 
 
-export interface CreditsRespponse {
+export interface CreditsResponse {
     id: number;
     cast: Cast[];
     crew: Crew[];
