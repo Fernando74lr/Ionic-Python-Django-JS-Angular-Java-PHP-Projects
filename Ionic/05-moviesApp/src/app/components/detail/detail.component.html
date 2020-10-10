@@ -89,7 +89,7 @@
     <!-- Favorite -->
     <ion-buttons slot="end">
       <ion-button (click)="favorite()" expand="block" fill="clear" shape="round">
-        <ion-icon slot="end" name="star-outline"></ion-icon>
+        <ion-icon slot="end" [name]="starIcon"></ion-icon>
         <ion-label>Favorite</ion-label>
       </ion-button>
     </ion-buttons>
