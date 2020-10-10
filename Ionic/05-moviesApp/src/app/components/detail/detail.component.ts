@@ -23,11 +23,16 @@ export class DetailComponent implements OnInit {
     spaceBetween: -5
   };
 
+  starIcon = 'star-outline';
+
   constructor(private moviesService: MoviesService,
               private modalCtrl: ModalController,
               private dataLocal: DataLocalService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    // Check if movie exists.
+    this.dataLocal.movieExists(this.id)
+      .then(exists => this.starIcon = exists ? 'star' : 'star-outline');
 
     // Movie Details.
     this.moviesService.getMovieDetail(this.id)
@@ -47,7 +52,8 @@ export class DetailComponent implements OnInit {
   }
 
   favorite() {
-    this.dataLocal.saveMovie(this.movie);
+    const exists = this.dataLocal.saveMovie(this.movie);
+    this.starIcon = exists ? 'star' : 'star-outline';
   }
 
 }
