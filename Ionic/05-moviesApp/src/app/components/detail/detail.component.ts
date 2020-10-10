@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Cast, MovieDetail } from 'src/app/interfaces/interfaces';
+import { DataLocalService } from 'src/app/services/data-local.service';
 import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
@@ -23,28 +24,30 @@ export class DetailComponent implements OnInit {
   };
 
   constructor(private moviesService: MoviesService,
-              private modalCtrl: ModalController) { }
+              private modalCtrl: ModalController,
+              private dataLocal: DataLocalService) { }
 
   ngOnInit() {
-    console.log(this.id);
 
     // Movie Details.
     this.moviesService.getMovieDetail(this.id)
       .subscribe(response => {
-        console.log('Movie Details: ', response);
         this.movie = response;
       });
 
     // Actors Details.
     this.moviesService.getMovieActors(this.id)
     .subscribe(response => {
-      console.log('Actors: ', response);
       this.actors = response.cast;
     });
   }
 
   goBack() {
     this.modalCtrl.dismiss();
+  }
+
+  favorite() {
+    this.dataLocal.saveMovie(this.movie);
   }
 
 }
