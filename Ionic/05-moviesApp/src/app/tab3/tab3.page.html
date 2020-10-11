@@ -1,17 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid fixed>
+    <ion-row>
+      <h2><b>Favorites</b></h2>
+    </ion-row>
+  </ion-grid>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  
+  <div *ngFor="let movieGen of favoriteGender">
+    <ion-grid *ngIf="movieGen.movies.length > 0">
+      <!-- Title -->
+      <ion-row>
+        <ion-col>{{ movieGen.gender }}</ion-col>
+      </ion-row>
+      <!-- Movies Slide -->
+      <app-slideshow-poster [movies]="movieGen.movies"></app-slideshow-poster>
+    </ion-grid>
+  </div>
+
 </ion-content>
