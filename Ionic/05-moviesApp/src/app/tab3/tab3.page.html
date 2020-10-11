@@ -7,16 +7,15 @@
   </ion-grid>
 
   
-  <div *ngFor="let gen of genders">
-    
-    <ion-grid fixed>
+  <div *ngFor="let movieGen of favoriteGender">
+    <ion-grid *ngIf="movieGen.movies.length > 0">
+      <!-- Title -->
       <ion-row>
-        <ion-col>{{ gen.name }}</ion-col>
+        <ion-col>{{ movieGen.gender }}</ion-col>
       </ion-row>
+      <!-- Movies Slide -->
+      <app-slideshow-poster [movies]="movieGen.movies"></app-slideshow-poster>
     </ion-grid>
-    
-    <app-slideshow-poster [movies]="movies"></app-slideshow-poster>
-    
   </div>
 
 </ion-content>
