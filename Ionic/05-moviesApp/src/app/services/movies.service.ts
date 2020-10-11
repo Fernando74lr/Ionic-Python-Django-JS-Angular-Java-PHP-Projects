@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { CreditsResponse, MovieDetail, ResponseMDB } from '../interfaces/interfaces';
+import { CreditsResponse, Genre, MovieDetail, ResponseMDB } from '../interfaces/interfaces';
 
 const URL = environment.url;
 const apiKey = environment.apiKey;
@@ -58,7 +58,7 @@ export class MoviesService {
     return this.executeQuery<ResponseMDB>(`/search/movie?query=${movie_title}`);
   }
 
-  loadGender() {
+  loadGender(): Promise<Genre[]> {
     return new Promise(resolve => {
       this.executeQuery(`/genre/movie/list?a=1`)
         .subscribe(response => {

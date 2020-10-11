@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieDetail } from '../interfaces/interfaces';
+import { Genre, MovieDetail } from '../interfaces/interfaces';
 import { DataLocalService } from '../services/data-local.service';
 import { MoviesService } from '../services/movies.service';
 
@@ -11,14 +11,14 @@ import { MoviesService } from '../services/movies.service';
 export class Tab3Page implements OnInit {
 
   movies: MovieDetail[] = [];
+  genders: Genre[] = [];
 
   constructor(private dataLocal: DataLocalService,
               private moviesService: MoviesService) {}
 
   async ngOnInit() {
     this.movies = await this.dataLocal.loadFavorites();
-    this.moviesService.loadGender();
-    console.log(this.movies);
+    this.genders = await this.moviesService.loadGender();
   }
 
 }

@@ -2,10 +2,21 @@
 
   <ion-grid fixed>
     <ion-row>
-      <h2><b>New Movies</b></h2>
+      <h2><b>Favorites</b></h2>
     </ion-row>
   </ion-grid>
 
-  <app-slideshow-poster [movies]="movies"></app-slideshow-poster>
+  
+  <div *ngFor="let gen of genders">
+    
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col>{{ gen.name }}</ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    <app-slideshow-poster [movies]="movies"></app-slideshow-poster>
+    
+  </div>
 
 </ion-content>
