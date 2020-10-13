@@ -1,3 +1,5 @@
+// Clock Thread
+
 public class ClockThread extends Thread {
    	private int time, hora=0, min=0; 
 	private int stop = 120;           
