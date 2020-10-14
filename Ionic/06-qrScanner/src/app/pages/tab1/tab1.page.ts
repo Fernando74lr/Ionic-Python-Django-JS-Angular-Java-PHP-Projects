@@ -10,7 +10,7 @@ export class Tab1Page {
 
   swiperOptions = {
     allowSlidePrev: false,
-    allowSlideNewxt: false
+    allowSlideNext: false
   };
 
   constructor(private barcodeScanner: BarcodeScanner) {}
@@ -18,11 +18,11 @@ export class Tab1Page {
   ionViewDidEnter() {
     console.log('viewDidEnter');
   }
-
+  
   ionViewDidLeave() {
     console.log('viewDidLeave');
   }
-
+  
   ionViewWillEnter() {
     console.log('viewWillEnter');
     this.scan();
