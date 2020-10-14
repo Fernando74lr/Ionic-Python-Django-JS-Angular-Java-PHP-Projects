@@ -18,20 +18,16 @@ export class Tab1Page {
               private dataLocal: DataLocalService) {}
 
   ionViewDidEnter() {
-    console.log('viewDidEnter');
   }
   
   ionViewDidLeave() {
-    console.log('viewDidLeave');
   }
   
   ionViewWillEnter() {
-    console.log('viewWillEnter');
     this.scan();
   }
 
   ionViewWillLeave() {
-    console.log('viewWillLeave');
   }
 
   scan() {
@@ -41,7 +37,6 @@ export class Tab1Page {
         this.dataLocal.saveRecord(barcodeData.format, barcodeData.text);
       }
      }).catch(err => {
-        console.log('Error', err);
         this.dataLocal.saveRecord('QRCode', 'https://fernando-herrera.com');
      });
   }
