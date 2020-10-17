@@ -7,6 +7,8 @@ let img_3 = $('#img_3');
 let carousel = $('#carousel');
 let camera = $('#camera');
 
+// BAR READER FUNCTIONALITY
+
 // Initialization of Quagga library.
 Quagga.init({
     inputStream : {
