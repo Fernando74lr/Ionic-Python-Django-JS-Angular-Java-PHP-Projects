@@ -1,4 +1,3 @@
-// complete the function
 function solution(string) {
     let a = string.split("");
     let e = [];

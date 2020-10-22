@@ -20,10 +20,8 @@ for linea in range(len(texto)):
 archivo.close()
 
 print("La letra '", randomletra, "' se repite", numletra, "veces")
-
 print("")
-
-  print("------------------------------- TEXTO ---------------------------")
+print("------------------------------- TEXTO ---------------------------")
 
 if (numletra >= 0 and numletra <= 6):
   # Primeras 4 líneas
