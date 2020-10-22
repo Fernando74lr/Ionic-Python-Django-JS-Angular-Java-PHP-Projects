@@ -140,3 +140,13 @@ elif option == 2:
     print('MESSAGE DECRYPTED: ', codeToMessage(getCode(messageDecrypted)))
 elif option == 3:
     print(codeToMessage(str(input('Código: '))))
+
+'''
+TEST
+
+original
+1,-2,2;-1,1,3;1,-1,-4
+
+inversa
+-1,-10,-8;-1,-6,-5;0,-1,-1
+'''
