@@ -57,14 +57,6 @@ def makeVectors(code, size):
         del code[0:size]
     return vectors
 
-# DELETE?
-def getNumOfColumns(row):
-    i = 0
-    for column in str(row):
-        if column.isnumeric():
-            i+=1
-    return i
-
 def matrixTimesVectors(matrix, vectors):
     newVectors = []
     for vector in vectors:
