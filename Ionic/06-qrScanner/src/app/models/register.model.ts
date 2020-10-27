@@ -24,7 +24,7 @@ export class Register {
                 this.icon = 'globe';
             break;
             case 'geo:': 
-                this.type = 'http';
+                this.type = 'geo';
                 this.icon = 'location';
             break;   
             default:

@@ -41,6 +41,11 @@ export class DataLocalService {
         // Open Browser
         this.inAppBrowser.create(record.text, '_system');
       break;
+
+      case 'geo':
+        // Open MapBox
+        this.navCtrl.navigateForward(`/tabs/tab2/map/${record.text}`)
+      break;
     }
   }
 
