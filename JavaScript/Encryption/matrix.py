@@ -1,5 +1,8 @@
 import numpy as np
 
+# CONDA: conda install numpy
+# PIP: pip install numpy
+
 dictionary = {
     " " : "0",
     "a" : "1",
