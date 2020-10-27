@@ -14,8 +14,9 @@ export class Tab2Page {
     console.log("Sending email...");
   }
 
-  openRecord() {
-    console.log('openRecord()')
+  openRecord(record) {
+    console.log('Register: ', record);
+    this.dataLocal.openRecord(record);
   }
 
 }
