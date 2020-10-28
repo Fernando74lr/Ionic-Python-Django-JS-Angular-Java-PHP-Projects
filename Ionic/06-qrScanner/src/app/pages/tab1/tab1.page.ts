@@ -37,7 +37,8 @@ export class Tab1Page {
         this.dataLocal.saveRecord(barcodeData.format, barcodeData.text);
       }
      }).catch(err => {
-        this.dataLocal.saveRecord('QRCode', 'https://fernando-herrera.com');
+        //this.dataLocal.saveRecord('QRCode', 'https://fernando-herrera.com');
+        this.dataLocal.saveRecord('QRCode', 'geo:40.73151796986687,-74.06087294062502');
      });
   }
 
