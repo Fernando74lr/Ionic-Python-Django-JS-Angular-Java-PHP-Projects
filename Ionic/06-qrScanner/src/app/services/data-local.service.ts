@@ -49,4 +49,19 @@ export class DataLocalService {
     }
   }
 
+  sendEmail() {
+    const arrTemp = [];
+    const titles = 'Type, Format, Created at, Text\n';
+
+    arrTemp.push(titles);
+    this.records.forEach(record => {
+      const line = `${record.type}, ${record.format}, ${record.created}, ${record.text.replace(',', ' ')}\n`;
+
+      arrTemp.push(line);
+    });
+
+    console.log("arrTemp", arrTemp.join(''));
+
+  }
+
 }
