@@ -1,6 +1,8 @@
 from res.functions import createEvent, deleteEvent, readEvent, updateEvent, quickAdd
 from res.connection import service
 
+
+# FUNCTIONS
 def main():
     # CREATE
     createEvent(service)
