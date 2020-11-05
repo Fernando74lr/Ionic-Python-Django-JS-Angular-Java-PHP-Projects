@@ -3,6 +3,7 @@ import { Register } from '../models/register.model';
 import { Storage } from '@ionic/storage';
 import { NavController } from '@ionic/angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { File } from '@ionic-native/file/ngx';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class DataLocalService {
 
   constructor(private storage: Storage,
               private navCtrl: NavController,
-              private inAppBrowser: InAppBrowser) {
+              private inAppBrowser: InAppBrowser,
+              private file: File) {
     this.loadStorage();
   }
 
@@ -60,8 +62,27 @@ export class DataLocalService {
       arrTemp.push(line);
     });
 
-    console.log("arrTemp", arrTemp.join(''));
+    this.createPhysicalFile(arrTemp.join(''));
+  }
 
+  createPhysicalFile(text: string) {
+    this.file.checkFile(this.file.dataDirectory, 'registers.csv')
+      .then(exists => {
+        console.log('Exists?: ', exists);
+        return this.writeOnFile(text);
+      })
+      .catch(error => {
+        return this.file.createFile(this.file.dataDirectory, 'registers.csv', false)
+                .then(created => this.writeOnFile(text))
+                .catch(error_2 => console.log('The file couldn\'t be created', error_2));
+      });
+  }
+  
+  async writeOnFile(text: string) {
+    await this.file.writeExistingFile(this.file.dataDirectory, 'registers.csv', text);
+
+    console.log("File created");
+    console.log(this.file.dataDirectory + "registers.csv");
   }
 
 }
