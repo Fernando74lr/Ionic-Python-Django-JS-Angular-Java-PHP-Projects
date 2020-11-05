@@ -8,7 +8,8 @@ https://ionicframework.com/docs/angular/pwa
     4.1.- npm install -g firebase-tools
     4.2.- Login: firebase login
     4.3.- Initiate project (configurations): firebase init 
-	(remember be on the app route and select "www", not "public")
+	(remember be on the app route and select "www", not "public"
+	and NO overwrite the index.html)
         4.3.1.- If you couldn't add your app, use this command: 
 	firebase use --add (ID of your project)
     4.4.- Deploy your project: firebase deploy
