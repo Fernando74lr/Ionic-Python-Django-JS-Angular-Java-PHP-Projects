@@ -2,7 +2,7 @@ How to deploy a PWA
 https://ionicframework.com/docs/angular/pwa
 
 1.- Have your project running well (Ionic).
-2.-Making your Angular app a PWA: ng add @angular/pwa
+2.- Making your Angular app a PWA: ng add @angular/pwa
 3.- Create www folder: ionic build --prod
 4.- Create a new project in firebase and follow the dependencies:
     4.1.- npm install -g firebase-tools
