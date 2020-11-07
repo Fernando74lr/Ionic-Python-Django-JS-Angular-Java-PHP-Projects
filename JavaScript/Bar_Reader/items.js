@@ -2,6 +2,7 @@ const img1 = ['img/mueble-1.jpg', 'img/mueble-2.jpg', 'img/mueble-3.jpg'];
 const img2 = ['img/mueble-4.jpg', 'img/mueble-5.png', 'img/mueble-6.jpg'];
 
 // Dictionary of items.
+
 const ITEMS = [
     {code : 'BAN1', description : 'BANAK 1"', examples : img1},
     {code : 'BAN1B', description :  'BANAK 1 1/2"', examples : img2},
