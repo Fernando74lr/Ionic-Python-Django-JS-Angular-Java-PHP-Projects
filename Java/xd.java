@@ -1,6 +1,6 @@
 public class xd {
 
-    // Split the str by commas
+    // Split the str by commas function
     static String[] getValues(String str) {
         return str.split("[,]", 0);
     }
