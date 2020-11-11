@@ -5,6 +5,7 @@ import { NavController } from '@ionic/angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
+import { ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,8 @@ export class DataLocalService {
               private navCtrl: NavController,
               private inAppBrowser: InAppBrowser,
               private file: File,
-              private emailComposer: EmailComposer) {
+              private emailComposer: EmailComposer,
+              private toastController: ToastController) {
     this.loadStorage();
   }
 
@@ -68,22 +70,18 @@ export class DataLocalService {
   }
 
   createPhysicalFile(text: string) {
-    this.file.checkFile(this.file.dataDirectory, 'registers.csv')
-      .then(exists => {
-        console.log('Exists?: ', exists);
-        return this.writeOnFile(text);
-      })
-      .catch(error => {
-        return this.file.createFile(this.file.dataDirectory, 'registers.csv', false)
+    this.file.checkFile(this.file.dataDirectory, 'registers.csv');
+    this.file.createFile(this.file.dataDirectory, 'registers.csv', false)
                 .then(created => this.writeOnFile(text))
                 .catch(error_2 => console.log('The file couldn\'t be created', error_2));
-      });
   }
   
   async writeOnFile(text: string) {
     await this.file.writeExistingFile(this.file.dataDirectory, 'registers.csv', text);
 
-    const file = `${this.file.dataDirectory}/registers.csv`;
+    const file = `${this.file.dataDirectory}registers.csv`;
+
+    this.emailComposer.addAlias('gmail', 'com.google.android.gm');
 
     const email = {
       to: 'flopezramirez@hotmail.com',
@@ -93,13 +91,23 @@ export class DataLocalService {
         file
       ],
       subject: 'Backup of Scans',
-      body: 'Hey! Here you have the backups of the scans you\'ve made - <strong>ScanApp</strong>',
-      isHtml: true
+      body: 'Hey! Here you have the backups of the scans you\'ve made | <strong>ScanApp</strong>',
+      isHtml: true,
+      app: 'gmail'
     };
 
-  // Send a text message using default options.
-  this.emailComposer.open(email);
+    // Send a text message using default options.
+    this.emailComposer.open(email);
+    this.presentToast("Email sent.");
+  }
 
+  // Toast
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 700
+    });
+    toast.present();
   }
 
 }
