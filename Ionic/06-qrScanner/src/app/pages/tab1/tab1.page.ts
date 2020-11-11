@@ -32,13 +32,14 @@ export class Tab1Page {
 
   scan() {
     this.barcodeScanner.scan().then(barcodeData => {
-      console.log('Barcode data', barcodeData);
+      console.log('QR data: ', barcodeData);
       if (!barcodeData.cancelled) {
+        console.log("THEN")
         this.dataLocal.saveRecord(barcodeData.format, barcodeData.text);
       }
      }).catch(err => {
-        //this.dataLocal.saveRecord('QRCode', 'https://fernando-herrera.com');
-        this.dataLocal.saveRecord('QRCode', 'geo:40.748440,-73.985536');
+       console.log("CATCH: ", err);
+        this.dataLocal.saveRecord('QRCode', 'geo:19.013111,-98.212282');
      });
   }
 
