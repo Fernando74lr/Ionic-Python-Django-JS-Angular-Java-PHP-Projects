@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataLocalService } from 'src/app/services/data-local.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,15 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  swiperOptions = {
+    allowSlidePrev: false,
+    allowSlideNext: false
+  };
+
+  constructor(private dataLocal: DataLocalService) {}
+
+  scan() {
+    this.dataLocal.scan();
+  }
 
 }
