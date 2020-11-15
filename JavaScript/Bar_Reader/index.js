@@ -18,7 +18,7 @@ Quagga.init({
             width: 640,
             height: 240,
         },
-        target: document.querySelector('#camera')    // Or '#yourElement' (optional)
+        target: document.querySelector('#camera')
     },
         decoder : {
         readers : [
