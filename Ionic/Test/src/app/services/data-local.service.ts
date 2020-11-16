@@ -28,7 +28,7 @@ export class DataLocalService {
       to: 'flopezramirez@hotmail.com',
       subject: 'Testing Email',
       body: 
-        `<h1>Title</h1>
+        `<h1>Title test</h1>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
             Dolor et nihil fugiat dolorem officia cupiditate eum nulla 
@@ -38,6 +38,7 @@ export class DataLocalService {
           <h3>
             Fernando López Ramírez
             22-26-75-48-31
+            ISD
           </h3>`
       ,
       isHtml: true
