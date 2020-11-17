@@ -95,7 +95,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-content>\n\n  <div id='map'></div>\n\n  <ion-back-button defaultHref=\"/tabs/tab2\"\n                   text=\" \"\n                   class=\"back-button\"\n                   icon=\"close-circle\"></ion-back-button>\n\n</ion-content>";
+      __webpack_exports__["default"] = "<ion-content>\r\n\r\n  <div id='map'></div>\r\n\r\n  <ion-back-button defaultHref=\"/tabs/tab2\"\r\n                   text=\" \"\r\n                   class=\"back-button\"\r\n                   icon=\"close-circle\"></ion-back-button>\r\n\r\n</ion-content>";
       /***/
     },
 
