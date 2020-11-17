@@ -1,5 +1,5 @@
 '''
-    Remember to install Google API:
+    Remember to install Google API before running the code:
         pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
 '''
 
