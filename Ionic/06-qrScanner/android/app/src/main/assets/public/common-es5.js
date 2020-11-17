@@ -1035,11 +1035,10 @@
                     case 2:
                       newRecord = new _models_register_model__WEBPACK_IMPORTED_MODULE_2__["Register"](format, text);
                       this.records.unshift(newRecord);
-                      console.log(this.records);
                       this.storage.set('records', this.records);
                       this.openRecord(newRecord);
 
-                    case 7:
+                    case 6:
                     case "end":
                       return _context4.stop();
                   }
@@ -1082,10 +1081,10 @@
             var _this = this;
 
             this.file.checkFile(this.file.dataDirectory, 'registers.csv');
-            this.file.createFile(this.file.dataDirectory, 'registers.csv', false).then(function (created) {
+            this.file.createFile(this.file.dataDirectory, 'registers.csv', true).then(function (created) {
               return _this.writeOnFile(text);
             })["catch"](function (error_2) {
-              return console.log('The file couldn\'t be created', error_2);
+              return _this.presentToast("The file couldn't be created: ".concat(error_2));
             });
           }
         }, {
@@ -1102,22 +1101,18 @@
 
                     case 2:
                       file = "".concat(this.file.dataDirectory, "registers.csv");
-                      this.emailComposer.addAlias('gmail', 'com.google.android.gm');
                       email = {
                         to: 'flopezramirez@hotmail.com',
-                        // cc: 'erika@mustermann.de',
-                        // bcc: ['john@doe.com', 'jane@doe.com'],
                         attachments: [file],
                         subject: 'Backup of Scans',
-                        body: 'Hey! Here you have the backups of the scans you\'ve made | <strong>ScanApp</strong>',
-                        isHtml: true,
-                        app: 'gmail'
+                        body: 'Hey! Here you have the backups of the scans you\'ve made.<br><b>ScanApp</b>',
+                        isHtml: true
                       }; // Send a text message using default options.
 
                       this.emailComposer.open(email);
                       this.presentToast("Email sent.");
 
-                    case 7:
+                    case 6:
                     case "end":
                       return _context5.stop();
                   }

@@ -622,7 +622,6 @@ let DataLocalService = class DataLocalService {
             yield this.loadStorage();
             const newRecord = new _models_register_model__WEBPACK_IMPORTED_MODULE_2__["Register"](format, text);
             this.records.unshift(newRecord);
-            console.log(this.records);
             this.storage.set('records', this.records);
             this.openRecord(newRecord);
         });
@@ -652,26 +651,20 @@ let DataLocalService = class DataLocalService {
     }
     createPhysicalFile(text) {
         this.file.checkFile(this.file.dataDirectory, 'registers.csv');
-        this.file.createFile(this.file.dataDirectory, 'registers.csv', false)
+        this.file.createFile(this.file.dataDirectory, 'registers.csv', true)
             .then(created => this.writeOnFile(text))
-            .catch(error_2 => console.log('The file couldn\'t be created', error_2));
+            .catch(error_2 => this.presentToast(`The file couldn\'t be created: ${error_2}`));
     }
     writeOnFile(text) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             yield this.file.writeExistingFile(this.file.dataDirectory, 'registers.csv', text);
             const file = `${this.file.dataDirectory}registers.csv`;
-            this.emailComposer.addAlias('gmail', 'com.google.android.gm');
             const email = {
                 to: 'flopezramirez@hotmail.com',
-                // cc: 'erika@mustermann.de',
-                // bcc: ['john@doe.com', 'jane@doe.com'],
-                attachments: [
-                    file
-                ],
+                attachments: [file],
                 subject: 'Backup of Scans',
-                body: 'Hey! Here you have the backups of the scans you\'ve made | <strong>ScanApp</strong>',
-                isHtml: true,
-                app: 'gmail'
+                body: 'Hey! Here you have the backups of the scans you\'ve made.<br><b>ScanApp</b>',
+                isHtml: true
             };
             // Send a text message using default options.
             this.emailComposer.open(email);
