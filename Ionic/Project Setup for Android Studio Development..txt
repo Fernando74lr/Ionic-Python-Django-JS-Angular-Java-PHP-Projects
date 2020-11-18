@@ -1,11 +1,14 @@
 Project Setup for Android Studio Development.
 
 1.- Generate the www folder.
-	Run the following: ionic build
+	Run the following:
+		ionic build
 
 2.- Generate the native project, if it does not already exist.
-	For Capacitor, run the following: ionic capacitor add android
+	For Capacitor, run the following:
+		ionic capacitor add android
 
 3.- Develop the Ionic app and sync it to the native project.
 	*(Use this one every time you make a change, not the one before)*
-	Run the following: ionic capacitor copy android
+	Run the following:
+		ionic capacitor copy android

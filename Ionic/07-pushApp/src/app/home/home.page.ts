@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { ApplicationRef, Component, EventEmitter, OnInit } from '@angular/core';
+import { OSNotificationPayload } from '@ionic-native/onesignal/ngx';
 import { PushService } from '../services/push.service';
 
 @Component({
@@ -6,8 +7,24 @@ import { PushService } from '../services/push.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
-  constructor(public pushService: PushService) {}
+  messages: OSNotificationPayload[] = [];
 
+  constructor(private pushService: PushService,
+              private appRef: ApplicationRef) {}
+
+  ngOnInit() {
+    this.pushService.pushListener.subscribe(noti => {
+      this.messages.unshift(noti);
+      // Tells Angular to make the detection cycle again.
+      this.appRef.tick()
+    });
+  }
+
+  async ionViewWillEnter() {
+    console.log('Will Enter - Load Messages');
+    
+    this.messages = await this.pushService.getMessages();
+  }
 }

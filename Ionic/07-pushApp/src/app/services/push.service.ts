@@ -1,20 +1,25 @@
-import { Injectable } from '@angular/core';
-import { OneSignal, OSNotification } from '@ionic-native/onesignal/ngx';
+import { EventEmitter, Injectable } from '@angular/core';
+import { OneSignal, OSNotification, OSNotificationPayload } from '@ionic-native/onesignal/ngx';
+import { Storage } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PushService {
 
-  messages: any[] = [
-    {
-      title: 'Title push',
-      body: 'This is the body of the push',
-      date: new Date()
-    }
-  ];
+  messages: OSNotificationPayload[] = [];
 
-  constructor(private oneSignal: OneSignal) { }
+  pushListener = new EventEmitter<OSNotificationPayload>();
+
+
+  constructor(private oneSignal: OneSignal, private storage: Storage) {
+    this.loadMessages();
+  }
+
+  async getMessages() {
+    await this.loadMessages();
+    return [...this.messages];
+  }
 
   initialConfiguration() {
     this.oneSignal.startInit('7a3ca103-3377-43e4-aefd-80b7c4148d22', '1016671983209');
@@ -35,7 +40,9 @@ export class PushService {
     this.oneSignal.endInit();
   }
 
-  receivedNotification(noti: OSNotification) {
+  async receivedNotification(noti: OSNotification) {
+
+    await this.loadMessages()
     const payload = noti.payload;
     const existsPush = this.messages.find(message => message.notificationID === payload.notificationID);
 
@@ -43,6 +50,20 @@ export class PushService {
       return;
     }
 
+    // Add the new message to the array.
     this.messages.unshift(payload);
+    // Emits that there's one new message.
+    this.pushListener.emit(payload);
+    // Store the message
+    this.saveMessages();
+    
+  }
+
+  saveMessages() {
+    this.storage.set('messages', this.messages);
+  }
+
+  async loadMessages() {
+    this.messages = await this.storage.get('messages') || [];
   }
 }
