@@ -16,11 +16,6 @@ export class PushService {
     this.loadMessages();
   }
 
-  async getMessages() {
-    await this.loadMessages();
-    return [...this.messages];
-  }
-
   initialConfiguration() {
     this.oneSignal.startInit('7a3ca103-3377-43e4-aefd-80b7c4148d22', '1016671983209');
 
@@ -33,8 +28,9 @@ export class PushService {
     });
 
     // Do something when a notification is opened
-    this.oneSignal.handleNotificationOpened().subscribe((noti) => {
+    this.oneSignal.handleNotificationOpened().subscribe(async(noti) => {
       console.log('Notification opened', noti);
+      await this.receivedNotification(noti.notification);
     });
 
     this.oneSignal.endInit();
@@ -52,18 +48,24 @@ export class PushService {
 
     // Add the new message to the array.
     this.messages.unshift(payload);
+    // Store the message
+    await this.saveMessages();
     // Emits that there's one new message.
     this.pushListener.emit(payload);
-    // Store the message
-    this.saveMessages();
     
   }
 
-  saveMessages() {
-    this.storage.set('messages', this.messages);
+  async saveMessages() {
+    await this.storage.set('messages', this.messages);
   }
 
   async loadMessages() {
     this.messages = await this.storage.get('messages') || [];
+    return this.messages;
+  }
+  
+  async getMessages() {
+    await this.loadMessages();
+    return [...this.messages];
   }
 }
