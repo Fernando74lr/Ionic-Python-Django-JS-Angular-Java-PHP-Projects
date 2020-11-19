@@ -1,12 +1,25 @@
 let btn = $('#btn');
 let btn2 = $('#btn2');
+let btnDelete = $('#delete');
 let img = $('#img');
 let user = $('#user').val();
 let user_title = $('#user_name');
 let repos = [];
+let projects = $('#projects');
 
 // Get user avatar and repositories.
 btn.click(function() {
+
+    // Clean repos
+    if (repos.length > 0) {
+        repos = [];
+        projects.html(`
+            <li style="list-style: none;">
+            </li>
+            <br>
+        `);
+    }
+
     // Set user name
     let user = $('#user').val();
     user_title.html(user);
@@ -37,8 +50,6 @@ let dateTransform = date => date.split("T")[0];
 
 // Print repositories.
 function print_repos() {
-    let projects = $('#projects');
-    
     repos.forEach(repo => {
         projects.append(`
             <li style="list-style: none;">
