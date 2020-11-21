@@ -7,7 +7,7 @@ let img_3 = $('#img_3');
 let carousel = $('#carousel');
 let camera = $('#camera');
 
-// BAR READER FUNCTIONALITY
+// BAR READER FUNCTIONALITY USING QUAGGA
 
 // Initialization of Quagga library.
 Quagga.init({
