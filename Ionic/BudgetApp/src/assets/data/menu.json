@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Home",
+        "icon": "home-outline",
+        "url": ""
+    },
+    {
+        "name": "2nd page",
+        "icon": "planet-outline",
+        "url": ""
+    },
+    {
+        "name": "3rd page",
+        "icon": "document-outline",
+        "url": ""
+    }
+]
