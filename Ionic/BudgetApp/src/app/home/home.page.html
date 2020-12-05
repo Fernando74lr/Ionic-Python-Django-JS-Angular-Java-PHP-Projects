@@ -1,7 +1,30 @@
-<app-header title="Home"></app-header>
+<ion-header class="ion-no-border" translucent >
+  <ion-toolbar color="purple">
+    <ion-buttons slot="start">
+      <ion-menu-button id="menu-button"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
 
-<ion-content [fullscreen]="true">
-  <ion-card>
+  <div id="background" class="ion-padding">
+    <ion-row>
+      <ion-col size="7">
+        <p id="balance">
+          $ 2800.00
+        </p>
+        <span id="title">Available Balance</span>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="onClick()" size="default" color="success" expand="block" fill="solid" shape="round">
+          Click me
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+
+  <!-- <ion-card>
     <ion-img src="assets/shapes.svg"></ion-img>
     <ion-card-header>
       <ion-card-subtitle>Destination</ion-card-subtitle>
@@ -10,16 +33,5 @@
     <ion-card-content>
       Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
     </ion-card-content>
-  </ion-card>
-
-  <ion-row>
-    <ion-col size="6">
-      <h1>$2800.00</h1>
-    </ion-col>
-    <ion-col>
-      <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
-        Click me
-      </ion-button>
-    </ion-col>
-  </ion-row>
+  </ion-card> -->
 </ion-content>

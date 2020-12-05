@@ -25,3 +25,35 @@
 #container a {
   text-decoration: none;
 }
+
+#balance {
+  font-size: 40px!important;
+  color: #ffffff;
+  font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+#title {
+  font-size: 17px!important;
+  color: #ffffff91;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  position: relative;
+  top: -15px;
+  left: 5px;
+}
+
+#background {
+  height: 250px;
+  width: 100%;
+  background-color: #4945fe;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  position: absolute;
+}
+
+#menu-button {
+  color: #ffffff;
+}
+
+#toolbar {
+  background-color: #4945fe!important;
+}

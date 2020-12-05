@@ -74,6 +74,15 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** Purple **/
+  --ion-color-purple: #4945fe;
+  --ion-color-purple-rgb: 73,69,254;
+
+  .ion-color-purple {
+    --ion-color-base: var(--ion-color-purple) !important;
+    --ion-color-base-rgb: var(--ion-color-purple-rgb) !important;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
