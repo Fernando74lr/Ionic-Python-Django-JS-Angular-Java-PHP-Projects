@@ -6,7 +6,7 @@
     </ion-buttons>
     
     <ion-buttons slot="end">
-      <ion-button color="light">
+      <ion-button color="light" (click)="test('options top right corner')">
         <ion-icon slot="icon-only" name="cube-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -25,7 +25,7 @@
         <span id="title">Available Balance</span>
       </ion-col>
       <ion-col>
-        <ion-button (click)="onClick()" size="default" color="success" expand="block" fill="solid" shape="round">
+        <ion-button (click)="test('button')" size="default" color="success" expand="block" fill="solid" shape="round">
           Click me
         </ion-button>
       </ion-col>
@@ -35,7 +35,7 @@
   <div id="options">
     <ion-row>
       <ion-col *ngFor="let item of ['Send','Pay','Request']">
-        <ion-avatar (click)="test()">
+        <ion-avatar (click)="test('first row')">
           <img src="/assets/stan-lee.jpg">
           <div id="div-options">
             <p id="text-options">{{ item }}</p>
@@ -43,15 +43,28 @@
         </ion-avatar>
       </ion-col>
     </ion-row>
-    <br>
+    <br><br>
     <ion-row>
       <ion-col *ngFor="let item of ['Invoice','Charity','Lean']">
-        <ion-avatar (click)="test()">
+        <ion-avatar (click)="test('second row')">
           <img src="/assets/stan-lee.jpg">
           <div id="div-options">
             <p id="text-options">{{ item }}</p>
           </div>
         </ion-avatar>
+      </ion-col>
+    </ion-row>
+    <br><br>
+    <ion-row>
+      <ion-col size="8">
+        <p id="description">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+        </p>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="onClick()" color="purple" fill="solid">
+          <ion-icon slot="icon-only" name="chevron-forward-outline"></ion-icon>
+        </ion-button>
       </ion-col>
     </ion-row>
   </div>

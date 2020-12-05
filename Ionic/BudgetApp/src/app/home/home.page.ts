@@ -9,8 +9,8 @@ export class HomePage {
 
   constructor() {}
 
-  test() {
-    console.log("TEST");
+  test(message: string) {
+    console.log(message);
   }
 
 }
