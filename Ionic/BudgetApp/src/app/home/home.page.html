@@ -1,10 +1,19 @@
 <ion-header class="ion-no-border" translucent >
   <ion-toolbar color="purple">
+
     <ion-buttons slot="start">
       <ion-menu-button id="menu-button"></ion-menu-button>
     </ion-buttons>
+    
+    <ion-buttons slot="end">
+      <ion-button color="light">
+        <ion-icon slot="icon-only" name="cube-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
 
   <div id="background" class="ion-padding">
@@ -23,15 +32,40 @@
     </ion-row>
   </div>
 
+  <div id="options">
+    <ion-row>
+      <ion-col *ngFor="let item of ['Send','Pay','Request']">
+        <ion-avatar (click)="test()">
+          <img src="/assets/stan-lee.jpg">
+          <div id="div-options">
+            <p id="text-options">{{ item }}</p>
+          </div>
+        </ion-avatar>
+      </ion-col>
+    </ion-row>
+    <br>
+    <ion-row>
+      <ion-col *ngFor="let item of ['Invoice','Charity','Lean']">
+        <ion-avatar (click)="test()">
+          <img src="/assets/stan-lee.jpg">
+          <div id="div-options">
+            <p id="text-options">{{ item }}</p>
+          </div>
+        </ion-avatar>
+      </ion-col>
+    </ion-row>
+  </div>
 
-  <!-- <ion-card>
-    <ion-img src="assets/shapes.svg"></ion-img>
+  <!-- <ion-card mode="ios" color="light" id="card">
+    <ion-img src="/assets/shapes.svg"></ion-img>
     <ion-card-header>
-      <ion-card-subtitle>Destination</ion-card-subtitle>
-      <ion-card-title>Madison, WI</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      <ion-card-title>Card Title</ion-card-title>
     </ion-card-header>
+  
     <ion-card-content>
-      Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
+      Keep close to Nature's heart... and break clear away, once in awhile,
+      and climb a mountain or spend a week in the woods. Wash your spirit clean.
     </ion-card-content>
   </ion-card> -->
 </ion-content>

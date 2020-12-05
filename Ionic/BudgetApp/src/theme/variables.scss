@@ -83,6 +83,13 @@
     --ion-color-base: var(--ion-color-purple) !important;
     --ion-color-base-rgb: var(--ion-color-purple-rgb) !important;
   }
+
+    /** Transparent **/
+    --ion-color-transparent-element: transparent;
+  
+    .ion-color-transparent-element {
+      --ion-color-base: var(--ion-color-transparent-element) !important;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
