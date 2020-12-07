@@ -1,0 +1,29 @@
+#card {
+    height: 150px;
+    width: 165px;
+    background-color: #D05146;
+    border-radius: 15%;
+    -webkit-box-shadow: 2px 10px 10px 1px rgba(0,0,0,0.22);
+    -moz-box-shadow: 2px 10px 10px 1px rgba(0,0,0,0.22);
+    box-shadow: 2px 10px 10px 1px rgba(0,0,0,0.22);
+    text-align: left;
+    justify-content: center;
+}
+
+#description-card {
+    font-family: 'Ubuntu Condensed', sans-serif;
+    color: #ffffffc0;
+    font-size: 20px;
+}
+
+#amount-card {
+    font-family: 'Ubuntu Condensed', sans-serif;
+    color:#ffffffc0;
+    font-size: 30px;
+}
+
+// #4e4bfd - purpleLight
+// #3098ff - blueLight
+// #ff725a - salmonLight
+// #f18dac - pinkLight
+// #ed9667 - orangeLight

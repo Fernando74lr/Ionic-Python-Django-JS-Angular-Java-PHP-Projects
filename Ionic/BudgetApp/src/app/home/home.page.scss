@@ -68,12 +68,6 @@
   padding-top: 20px!important;
 }
 
-.d {
-  background-color: #f7f7f7;
-  border: solid 1px #ddd;
-  padding: 10px;
-}
-
 ion-avatar {
   --border-radius: 50%;
   width: 65px;
@@ -95,4 +89,20 @@ ion-avatar {
   color: #000000ad;
   font-family: 'Ubuntu Condensed', sans-serif;
   font-size: 18px;
+}
+
+app-slides {
+  position: relative;
+  top: 135px;
+  left: 20px;
+}
+
+#title-slides {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-weight: bold;
+  color: #000000c5;
+  position: relative;
+  top: 140px;
+  left: 32.5px;
+  font-size: 32px;
 }

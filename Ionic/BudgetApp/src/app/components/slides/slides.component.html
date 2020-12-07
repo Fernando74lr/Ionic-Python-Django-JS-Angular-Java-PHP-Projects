@@ -1,0 +1,10 @@
+<ion-slides [options]="slidesOptions">
+  <ion-slide *ngFor="let item of itemsList">
+  <ion-card mode="ios" color="light" (click)="test(item.title)" style="background-color:{{item.color}}" id="card">
+      <ion-card-header>
+        <p id="description-card">{{ item.title }}</p>
+        <h1 id="amount-card">{{ item.amount }}</h1>
+      </ion-card-header>
+    </ion-card>
+  </ion-slide>
+</ion-slides>

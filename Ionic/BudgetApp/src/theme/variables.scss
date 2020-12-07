@@ -84,12 +84,47 @@
     --ion-color-base-rgb: var(--ion-color-purple-rgb) !important;
   }
 
-    /** Transparent **/
-    --ion-color-transparent-element: transparent;
-  
-    .ion-color-transparent-element {
-      --ion-color-base: var(--ion-color-transparent-element) !important;
-    }
+  /** Transparent **/
+  --ion-color-transparent-element: transparent;
+
+  .ion-color-transparent-element {
+    --ion-color-base: var(--ion-color-transparent-element) !important;
+  }
+
+  /** purpleLight **/
+  --ion-color-purpleLight-element: #4e4bfd;
+
+  .ion-color-purpleLight-element {
+    --ion-color-base: var(--ion-color-purpleLight-element) !important;
+  }
+
+  /** blueLight **/
+  --ion-color-blueLight-element: #3098ff;
+
+  .ion-color-blueLight-element {
+    --ion-color-base: var(--ion-color-blueLight-element) !important;
+  }
+
+  /** salmonLight **/
+  --ion-color-salmonLight-element:#ff725a;
+
+  .ion-color-salmonLight-element {
+    --ion-color-base: var(--ion-color-salmonLight-element) !important;
+  }
+
+  /** pinkLight **/
+  --ion-color-pinkLight-element: #f18dac;
+
+  .ion-color-pinkLight-element {
+    --ion-color-base: var(--ion-color-pinkLight-element) !important;
+  }
+
+  /** orangeLight **/
+  --ion-color-orangeLight-element: #ed9667;
+
+  .ion-color-orangeLight-element {
+    --ion-color-base: var(--ion-color-orangeLight-element) !important;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
