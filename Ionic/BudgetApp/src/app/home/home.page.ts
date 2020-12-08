@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +8,14 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private dataService: DataService) {}
 
   test(message: string) {
     console.log(message);
+  }
+
+  popover(event: any) {
+    this.dataService.presentPopover(event);
   }
 
 }
