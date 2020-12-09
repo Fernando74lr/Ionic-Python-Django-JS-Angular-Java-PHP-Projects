@@ -1,5 +1,7 @@
 {
   "name": "BudgetApp",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

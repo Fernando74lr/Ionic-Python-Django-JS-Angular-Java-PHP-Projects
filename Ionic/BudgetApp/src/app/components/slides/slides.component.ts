@@ -24,7 +24,7 @@ export class SlidesComponent implements OnInit {
       color: "#ff725a"
     },
     {
-      title: "Therapist",
+      title: "Therapist payment",
       amount: "$420",
       color: "#f18dac"
     },
@@ -44,14 +44,14 @@ export class SlidesComponent implements OnInit {
       color: "#3098ff"
     },
     {
-      title: "Therapist",
+      title: "Therapist payment",
       amount: "$420",
       color: "#ff725a"
     }
   ];
 
   slidesOptions = {
-    slidesPerView: 2.5,
+    slidesPerView: 2.4,
     freeMode: true
   };
 
