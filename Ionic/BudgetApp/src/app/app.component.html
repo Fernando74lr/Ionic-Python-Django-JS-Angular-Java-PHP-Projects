@@ -3,17 +3,26 @@
   <ion-menu side="start"
             menuId="first"
             contentId="menuMain">
-    <ion-header>
-      <ion-toolbar color="purple" class="ion-no-border" translucent>
-        <ion-title color="light">Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
+    <!-- <ion-header class="ion-no-border">
+      <ion-avatar>
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+      </ion-avatar>
+    </ion-header> -->
 
     <ion-content>
+      <ion-item id="user">
+        <ion-avatar slot="start">
+          <img src="assets/pp1.jpg">
+        </ion-avatar>
+        <ion-label>
+          <h1 id="username-menu" class="font-poppins">Fernando Lr.</h1>
+          <h2 class="font-poppins">{{ dayMoment }}</h2>
+        </ion-label>
+      </ion-item>
       <ion-list>
         <ion-menu-toggle *ngFor="let option of menuOptions | async" autoHide="false">
           <ion-item [routerLink]="option.url">
-          <ion-icon color="primary" slot="start" [name]="option.icon"></ion-icon>
+          <ion-icon color="purple" slot="start" [name]="option.icon"></ion-icon>
           <ion-label>{{ option.name }}</ion-label>
           </ion-item>
         </ion-menu-toggle>

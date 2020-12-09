@@ -12,23 +12,35 @@ export class DataService {
   constructor(private http: HttpClient,
               private popoverCtrl: PopoverController) { }
 
+  // Menu Options
   getMenuOptions() {
     return this.http.get<Component[]>('assets/data/menu.json');
   }
 
-  async presentPopover(ev: any) { // We need to send "$event" from the html so it can adapt the size.
+  // Popover
+  async presentPopover(ev: any) {
     const popover = await this.popoverCtrl.create({
       component: PopoverInfoComponent,
       cssClass: 'my-custom-class',
       event: ev,
       translucent: true,
-      backdropDismiss: false // If you want to forze the user to select an option.
+      backdropDismiss: true
     });
     await popover.present();
 
     // Get info from child to father.
     const { data } = await popover.onWillDismiss();
     console.log(data);
+  }
+
+  // Gretting by the moment of the day
+  getDayMoment() {
+    let hour = new Date().getHours();
+    let greet: string;
+    if (hour < 12) return greet = 'Good morning! 👋';
+    if (hour >= 12 && hour < 18) return greet = 'Good afternoon! 👋';
+    if (hour >= 18 && hour < 20) return greet = 'Good evening! 🌗';
+    if (hour >= 20) return greet = 'Good night! 🌙';
   }
 
 }

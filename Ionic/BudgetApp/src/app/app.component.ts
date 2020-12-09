@@ -14,6 +14,7 @@ import { Observable } from 'rxjs';
 export class AppComponent {
 
   menuOptions: Observable<Components[]>;
+  dayMoment: string;
 
   constructor(
     private platform: Platform,
@@ -29,6 +30,7 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.menuOptions = this.dataService.getMenuOptions();
+      this.dayMoment = this.dataService.getDayMoment();
     });
   }
 }
