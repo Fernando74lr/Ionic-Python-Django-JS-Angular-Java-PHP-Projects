@@ -2,12 +2,12 @@
     {
         "name": "Home",
         "icon": "home-outline",
-        "url": ""
+        "url": "/home/"
     },
     {
         "name": "Dashboard",
         "icon": "analytics-outline",
-        "url": ""
+        "url": "/dashboard//"
     },
     {
         "name": "3rd page",

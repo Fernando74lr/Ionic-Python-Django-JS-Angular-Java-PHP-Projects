@@ -1,6 +1,17 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>dashboard</ion-title>
+<ion-header class="ion-no-border" translucent >
+  <ion-toolbar color="purple">
+
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/"></ion-back-button>
+      <ion-title class="ion-text-capitalize" color="light">Dashboard</ion-title>
+    </ion-buttons>
+    
+    <ion-buttons slot="end">
+      <ion-button color="light" (click)="popover($event)">
+        <ion-icon slot="icon-only" name="cube-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
