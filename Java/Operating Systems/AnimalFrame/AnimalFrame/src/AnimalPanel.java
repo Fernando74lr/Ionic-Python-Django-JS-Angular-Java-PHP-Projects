@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.util.Random;
 import javax.swing.JPanel;
 
+// Animal Class Panel
 public class AnimalPanel extends JPanel {
     private boolean isDay;
     
