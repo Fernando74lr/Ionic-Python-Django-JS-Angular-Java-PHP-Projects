@@ -11,3 +11,9 @@ ion-avatar {
     padding-top: 35px;
     padding-bottom: 20px;
 }
+
+#avatar-img {
+    -webkit-box-shadow: -1px 8px 8px -6px rgba(0,0,0,1);
+    -moz-box-shadow: -1px 8px 8px -6px rgba(0,0,0,1);
+    box-shadow: -1px 8px 8px -6px rgba(0,0,0,1);
+}
