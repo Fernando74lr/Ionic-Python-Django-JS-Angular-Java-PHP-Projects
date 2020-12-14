@@ -1,20 +1,33 @@
 <ion-header class="ion-no-border" translucent >
-  <ion-toolbar color="purple">
+  <ion-toolbar color="white">
 
     <ion-buttons slot="start">
-      <ion-back-button color="light" defaultHref="/"></ion-back-button>
-      <ion-title class="ion-text-capitalize" color="light">Dashboard</ion-title>
+      <ion-back-button color="dark" defaultHref="/"></ion-back-button>
     </ion-buttons>
     
     <ion-buttons slot="end">
-      <ion-button color="light" (click)="popover($event)">
-        <ion-icon slot="icon-only" name="cube-outline"></ion-icon>
+      <ion-button color="dark" (click)="popover($event)">
+        <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
 
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  
+  <ion-title id="statistics" class="font-poppins">Dashboard</ion-title><br>
+
+  <ion-card id="card-statistics" color="purple">
+    <ion-card-header>
+      <ion-card-title class="font-poppins title">$ 2800.00</ion-card-title>
+      <ion-card-subtitle class="font-poppins subtitle">Available Balance</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Keep close to Nature's heart... and break clear away, once in awhile,
+      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
