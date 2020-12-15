@@ -1,21 +1,35 @@
 #statistics {
     font-size: 25px!important;
-    color: #000000c5;
+    color: #000000;
 }
 
 #card-statistics {
-    height: 350px;
-    margin-left: 15px;
-    margin-right: 15px;
+    height: 312.5px;
     border-radius: 5%;
+    -webkit-box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.75);
+}
+
+ion-card-content {
+    height: 200px;
+    width: 350px;
+    // border: 1px solid red;
 }
 
 .title {
     font-size: 25px!important;
-    color: #ffffff!important;
+    color: #000000!important;
 }
 
 .subtitle {
     font-size: 14px!important;
-    color: #ffffffc9!important;
+    color: #000000c5!important;
+}
+
+#chart-statistics {
+    width: 400px;
+    height: 200px;
+    padding-right: 70px!important;
+    // border: 1px solid black;
 }
