@@ -16,7 +16,7 @@
 
 <ion-content class="ion-padding">
   
-  <ion-title id="statistics" class="font-poppins">Dashboard</ion-title><br>
+  <ion-title id="statistics" class="font-poppins">Dashboard</ion-title>
 
   <ion-card id="card-statistics" color="light">
     <ion-card-header>
@@ -30,5 +30,20 @@
       </div>
     </ion-card-content>
   </ion-card>
+
+  <!-- List of Text Items -->
+  <ion-list>
+    <ion-title id="activities" class="font-poppins">Recent Activity</ion-title>
+    <ion-item *ngFor="let x of [1,1,1,1]">
+      <ion-avatar slot="start">
+        <img src="../../../assets/pp1.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h3>Lorem ipsum</h3>
+        <p>dolor sit amet</p>
+        <p>consectetur adipiscing elit. Duis ut urna neque.</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
 </ion-content>
