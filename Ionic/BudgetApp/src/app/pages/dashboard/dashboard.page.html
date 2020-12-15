@@ -35,15 +35,15 @@
   <ion-list>
     <ion-title id="activities" class="font-poppins">Recent Activity</ion-title>
     <ion-item *ngFor="let label of ['Lord Atep','Mas Mariano','Spa Salon','Medical consultation']">
-      <ion-avatar slot="start">
+      <ion-avatar slot="start" class="avatar-dash">
         <img src="../../../assets/pp1.jpg">
       </ion-avatar>
       <ion-label>
-        <h2>{{ label }}</h2>
-        <h3>Sent monet</h3>
+        <h2 id="title-item" class="font-poppins">{{ label }}</h2>
+        <h3 id="subtitle-item" class="font-poppins">Sent monet</h3>
       </ion-label>
-      <ion-label slot="end">
-        <h2><b>-$240</b></h2>
+      <ion-label slot="end" id="cost">
+        <h2 class="font-poppins"><b>-$240</b></h2>
       </ion-label>
     </ion-item>
   </ion-list>

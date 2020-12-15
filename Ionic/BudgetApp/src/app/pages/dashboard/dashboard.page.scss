@@ -1,14 +1,15 @@
 #statistics {
     font-size: 27px!important;
     color: #000000;
+    margin-bottom: 10px;
 }
 
 #card-statistics {
     height: 306.25px;
     border-radius: 5%;
-    -webkit-box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
 }
 
 ion-card-content {
@@ -35,6 +36,24 @@ ion-card-content {
 }
 
 #activities {
-    font-size: 20px;
+    font-size: 22px;
     color: #000000;
+    margin-bottom: 10px;
+}
+
+#cost {
+    text-align: end;
+}
+
+#title-item {
+    font-size: 18px;
+}
+
+#subtitle-item {
+    font-size: 14px;
+}
+
+.avatar-dash {
+    height: 55px;
+    width: 55px;
 }
