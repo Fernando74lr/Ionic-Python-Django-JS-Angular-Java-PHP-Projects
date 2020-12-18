@@ -65,6 +65,10 @@ export class DashboardPage implements OnInit {
                     // fontColor: "#ffffff"
                 }
             }]
+        },
+        animation: {
+          duration: 750,
+          easing: 'easeInQuad'
         }
     }
     });

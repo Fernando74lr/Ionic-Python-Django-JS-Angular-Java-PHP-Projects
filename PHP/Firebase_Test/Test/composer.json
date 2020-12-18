@@ -1,0 +1,10 @@
+{
+    "name": "vendor/test_firebase",
+    "description": "This is a test in order to connect php and firebase",
+    "type": "project",
+    "license": "GNU3",
+    "minimum-stability": "dev",
+    "require": {
+        "kreait/firebase-php": "5.x-dev"
+    }
+}
