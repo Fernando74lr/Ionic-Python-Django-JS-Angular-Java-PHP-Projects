@@ -3,6 +3,8 @@
     $action = $_POST['action'];
     $password = $_POST['password'];
     $user = $_POST['user'];
+    $email = $_POST['email'];
+    $description = $_POST['description'];
 
     # Create new users.
     if ($action === 'create') {
@@ -22,9 +24,9 @@
         # Consult the Database.
         try {
             # Prepare Statement to prevent SQL injection problems.
-            $stmt = $conn->prepare("INSERT INTO `users` (user, password) VALUES (?, ?) ");
+            $stmt = $conn->prepare("INSERT INTO `users` (user, password, email, description) VALUES (?, ?, ?, ?) ");
             # This is where the values are actually passed.
-            $stmt->bind_param('ss', $user, $hash_password); 
+            $stmt->bind_param('ssss', $user, $hash_password, $email, $description); 
             # We execute the query that returns values.
             $stmt->execute();
 
@@ -35,7 +37,9 @@
                     # Para acceder al ID.
                     'id_insertado' => $stmt->insert_id,
                     'name' => $user,
-                    'action' => $action
+                    'action' => $action,
+                    'email' => $email,
+                    'description' => $description                    
                 );
             } else {
                 $response = array(
@@ -67,14 +71,14 @@
         # Select the user from the Data Base.
         try {
             # Prepare Statement to prevent SQL injection problems.
-            $stmt = $conn->prepare("SELECT user, id, password FROM users WHERE user = ?");
+            $stmt = $conn->prepare("SELECT user, id, password, email, description FROM users WHERE user = ?");
             # This is where we get the values.
             $stmt->bind_param('s', $user);
             # We execute the query that returns values.
             $stmt->execute();
             
             # Binds variables to a statement prepared for storing the result.
-            $stmt->bind_result($user_name, $id_user, $pass_user);
+            $stmt->bind_result($user_name, $id_user, $pass_user, $email_user, $description_user);
             # Go get the results.
             $stmt->fetch();
 
@@ -85,6 +89,8 @@
                     # Log in.
                     session_start();
                     $_SESSION['name'] = $user;
+                    $_SESSION['email'] = $email_user;
+                    $_SESSION['description'] = $description_user;
                     $_SESSION['id'] = $id_user;
                     $_SESSION['login'] = true;
 

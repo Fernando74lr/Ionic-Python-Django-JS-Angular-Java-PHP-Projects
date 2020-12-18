@@ -24,6 +24,8 @@
             <div class="form-group">
                 <input type="hidden" id="action" value="login">
                 <input type="hidden" id="password_repeat" value="null">
+                <input type="hidden" id="email" value="null">
+                <input type="hidden" id="description" value="null">
                 <button class="btn btn-primary btn-block" type="submit">Log In</button>
             </div>
             <a class="forgot" href="#">Forgot your email or password?</a>

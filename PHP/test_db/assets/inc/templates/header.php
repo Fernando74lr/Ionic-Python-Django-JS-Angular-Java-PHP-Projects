@@ -14,4 +14,4 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body style="background-color: #21242b;">
+<body>

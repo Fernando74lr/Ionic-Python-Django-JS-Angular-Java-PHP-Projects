@@ -13,6 +13,11 @@
         return isset($_SESSION['name']);
     }
 
+    function getUserProfile() {
+        return $_SESSION;
+    }
+
+
     # It allows you to go from one page to another without having to log in all the time.
     session_start();
     autenticated_user();

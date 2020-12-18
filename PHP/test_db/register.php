@@ -21,6 +21,16 @@
                     <input class="form-control" type="text" name="user" id="user" placeholder="User">
                 </div>
 
+                <!-- Email -->
+                <div class="form-group">
+                    <input class="form-control" type="email" name="email" id="email" placeholder="Email">
+                </div>
+
+                <!-- Description -->
+                <div class="form-group">
+                    <textarea class="form-control" type="text" name="description" id="description" placeholder="A little description of your profile" rows="5"></textarea>
+                </div>                                
+
                 <!-- Password -->
                 <div class="form-group">
                     <input class="form-control" type="password" name="password" id="password" placeholder="Password">
