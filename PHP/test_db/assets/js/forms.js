@@ -8,9 +8,13 @@ function validateForm(e) {
     e.preventDefault();
     
     var user = document.querySelector('#user').value,
+        email = document.querySelector('#email').value,
+        description = document.querySelector('#description').value,
         password = document.querySelector('#password').value,
         password_repeat = document.querySelector('#password_repeat').value,
         action = document.querySelector('#action').value;
+
+        console.table([user, password, password_repeat, action, email, description]);
 
     if (password_repeat === 'null') {
         password_repeat = password;
@@ -26,6 +30,8 @@ function validateForm(e) {
             // Data sent to the server.
             var data = new FormData();
             data.append('user', user);
+            data.append('email', email);
+            data.append('description', description);            
             data.append('password', password);
             data.append('action', action);
 
@@ -40,6 +46,7 @@ function validateForm(e) {
                 // Status: success/ok.
                 if (this.status === 200) {
                     var answer = xhr.responseText;
+                    console.log(answer);
                     var response = JSON.parse(answer);
                     console.log(response);
                     // If the response is correct.
@@ -126,7 +133,7 @@ function successMessage(success, name) {
         case 'login':
             Swal.fire({
                 icon: 'success',
-                title: `Welcome ${name}!`,
+                title: `Welcome, ${name}!`,
                 text: 'Press OK to open dashboard'
             })
             .then(result => {
