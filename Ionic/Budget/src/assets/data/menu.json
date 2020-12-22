@@ -1,0 +1,32 @@
+[
+    {
+      "name": "Inbox",
+      "url": "/folder/Inbox",
+      "icon": "mail"
+    },
+    {
+      "name": "Outbox",
+      "url": "/folder/Outbox",
+      "icon": "paper-plane"
+    },
+    {
+      "name": "Favorites",
+      "url": "/folder/Favorites",
+      "icon": "heart"
+    },
+    {
+      "name": "Archived",
+      "url": "/folder/Archived",
+      "icon": "archive"
+    },
+    {
+      "name": "Trash",
+      "url": "/folder/Trash",
+      "icon": "trash"
+    },
+    {
+      "name": "Spam",
+      "url": "/folder/Spam",
+      "icon": "warning"
+    }
+]
