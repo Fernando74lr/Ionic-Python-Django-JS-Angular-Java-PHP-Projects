@@ -29,7 +29,6 @@
         <button>Submit Payment</button>
     </form>
 
-
     <!-- Scripts Js -->
     <script src="assets/js/scripts.js"></script>
 
