@@ -7,7 +7,7 @@ driver = webdriver.Chrome("C:/Users/Fer/.wdm/drivers/chromedriver/win32/87.0.428
 driver.get('https://web.whatsapp.com/')
 
 # Get the date from the user that we want to post
-name = "Test" #input('Enter the name of user or group: ')
+name = input('Enter the name of user or group: ')
 # Get the message
 message = input('Enter your message: ')
 # How many time do I want to send the message
