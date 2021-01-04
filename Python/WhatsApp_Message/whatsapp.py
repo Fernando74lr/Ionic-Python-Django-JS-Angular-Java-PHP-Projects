@@ -11,7 +11,7 @@ name = "Test" #input('Enter the name of user or group: ')
 # Get the message
 message = input('Enter your message: ')
 # How many time do I want to send the message
-count = 10 #int(input('Enter the count: '))
+count = int(input('Enter the count: '))
 
 input('Enter anything after scanning QR code')
 
