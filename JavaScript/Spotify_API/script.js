@@ -1,5 +1,6 @@
 // https://developer.spotify.com/
 // https://developer.spotify.com/discover/#playlists
+// https://developer.spotify.com/documentation/web-api/
 
 const endpoint = "https://api.spotify.com/v1/recommendations";
 const params = {
