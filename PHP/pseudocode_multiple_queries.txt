@@ -1,0 +1,2 @@
+
+QUERY -> get all name of the enterprises
