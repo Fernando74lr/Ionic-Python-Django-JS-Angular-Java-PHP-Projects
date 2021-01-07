@@ -1,2 +1,3 @@
 
 QUERY -> get all name of the enterprises
+STORE them in a dictionary with its own ID
