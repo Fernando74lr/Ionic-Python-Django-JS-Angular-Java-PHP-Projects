@@ -16,9 +16,13 @@
                 <th>Razón Social</th>
                 <th>RFC</th>
             </tr>
-            <tr>
-                <td></td>
-            </tr>
+            {% for data in sqlServerConn %}
+                <tr>
+                    <td>{{data.CIDCLIENTEPROVEEDOR}}</td>
+                    <td>{{data.CRAZONSOCIAL}}</td>
+                    <td>{{data.CRFC}}</td>
+                </tr>
+            {% endfor %}
         </table>
     </center>
 </body>
