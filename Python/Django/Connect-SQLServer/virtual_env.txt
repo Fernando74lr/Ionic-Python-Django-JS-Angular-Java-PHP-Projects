@@ -10,3 +10,4 @@ Installed Packages
     - Python 3.8
     - Django
     - Pylint
+    - Pyodbc
