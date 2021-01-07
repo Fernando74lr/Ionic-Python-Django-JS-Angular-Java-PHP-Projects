@@ -1,0 +1,12 @@
+# To activate this environment, use
+#
+#     $ conda activate Django3
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+Installed Packages
+    - Python 3.8
+    - Django
+    - Pylint
