@@ -16,12 +16,15 @@
                 <th>Razón Social</th>
                 <th>RFC</th>
             </tr>
-            {% for data in sqlServerConn %}
-                <tr>
-                    <td>{{data.CIDCLIENTEPROVEEDOR}}</td>
-                    <td>{{data.CRAZONSOCIAL}}</td>
-                    <td>{{data.CRFC}}</td>
-                </tr>
+            {% for enterprise in sqlServerConn %}
+                {% for data in enterprise %}
+                    <tr>
+                        <td>{{data.CIDCLIENTEPROVEEDOR}}</td>
+                        <td>{{data.CRAZONSOCIAL}}</td>
+                        <td>{{data.CRFC}}</td>
+                    </tr>
+                {% endfor %}
+                <br>
             {% endfor %}
         </table>
     </center>
