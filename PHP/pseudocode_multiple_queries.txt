@@ -2,6 +2,7 @@
 QUERY -> get all name of the enterprises
 STORE them in a dictionary with its own ID
 
+# Check if this is convenient and efficient
 for enterprise in enterprises:
     QUERY -> enterprise
                 |_ id
