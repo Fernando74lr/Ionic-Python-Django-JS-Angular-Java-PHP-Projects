@@ -10,23 +10,23 @@
         <h1>Connect SQL Server DB & Display Data</h1>
         <h2>Django Web Application</h2>
         <hr>
-        <table border="1">
-            <tr>
-                <th>ID Cliente</th>
-                <th>Razón Social</th>
-                <th>RFC</th>
-            </tr>
-            {% for enterprise in sqlServerConn %}
-                {% for data in enterprise %}
-                    <tr>
-                        <td>{{data.CIDCLIENTEPROVEEDOR}}</td>
-                        <td>{{data.CRAZONSOCIAL}}</td>
-                        <td>{{data.CRFC}}</td>
-                    </tr>
-                {% endfor %}
-                <br>
+        {% for enterprise in sqlServerConn %}
+            <table border="1">
+                <tr>
+                    <th>ID Cliente</th>
+                    <th>Razón Social</th>
+                    <th>RFC</th>
+                </tr>
+            {% for data in enterprise %}
+                <tr>
+                    <td>{{data.CIDCLIENTEPROVEEDOR}}</td>
+                    <td>{{data.CRAZONSOCIAL}}</td>
+                    <td>{{data.CRFC}}</td>
+                </tr>
             {% endfor %}
-        </table>
+            </table>
+            <br><br>
+        {% endfor %}
     </center>
 </body>
 </html>
