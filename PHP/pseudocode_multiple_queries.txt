@@ -7,3 +7,5 @@ for enterprise in enterprises:
     QUERY -> enterprise
                 |_ id
                 |_ name
+
+# Create the report with HTML and convert it to PDF?
