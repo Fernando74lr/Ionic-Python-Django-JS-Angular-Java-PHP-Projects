@@ -1,0 +1,37 @@
+<!-- Extension -->
+{% extends 'core/base.html' %}
+
+<!-- Load Static -->
+{% load static %}
+
+<!-- Title -->
+{% block title %}Reports{% endblock %}
+
+<!-- Content -->
+{% block content %}
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Reports</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group me-2">
+        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+      </div>
+      <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+        <span data-feather="calendar"></span>
+        This week
+      </button>
+    </div>
+  </div>
+
+  <h4>Select the report you want to generate.</h4>
+  <div class="container">
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore praesentium cupiditate maxime odit reprehenderit explicabo adipisci corporis sunt voluptas, officiis natus accusamus eius ipsa minus necessitatibus, molestias placeat. Repudiandae, sed!</p>
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-primary">Clientes</button>
+      <button type="button" class="btn btn-primary">Facturas</button>
+      <button type="button" class="btn btn-primary">Otro</button>
+    </div>
+
+  </div>
+{% endblock %}
