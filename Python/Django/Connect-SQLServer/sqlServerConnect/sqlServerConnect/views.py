@@ -26,5 +26,4 @@ def connSql(request):
         cursor.execute("SELECT CIDCLIENTEPROVEEDOR, CRAZONSOCIAL, CRFC FROM admClientes")
         result.append(cursor.fetchall())
 
-
     return render(request, 'index.html', {'sqlServerConn' : result})
