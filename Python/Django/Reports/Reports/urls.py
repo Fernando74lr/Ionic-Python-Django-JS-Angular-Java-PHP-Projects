@@ -19,8 +19,10 @@ from django.urls import path
 from core import views
 
 urlpatterns = [
-    # Core.
+    # Core
     path('', include('core.urls')),
+    # Report
+    path('', include('report.urls')),
     # Admin
     path('admin/', admin.site.urls),
 ]
