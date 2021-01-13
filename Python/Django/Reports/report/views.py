@@ -54,7 +54,6 @@ def get_clients(request):
     else:
         print("SOMETHING WENT WRONG")
 
-    # return result
     return render(request, 'report/reports.html', {'SqlServerConn' : result})
 
 def clients_report(request):
