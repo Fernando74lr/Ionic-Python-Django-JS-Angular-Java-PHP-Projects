@@ -1,0 +1,6 @@
+LINK
+    - https://medium.com/javascript-in-plain-english/how-to-upload-files-to-firebase-storage-in-node-js-e19b2b5e5cf9
+
+DEPENDENCIES
+    - npm i @google-cloud/storage
+    - npm i express
