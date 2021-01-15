@@ -16,7 +16,7 @@
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group me-2">
         <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-        <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{% url 'results' %}">Export</a></button>
+        <a href="{% url 'results' %}"><button type="button" class="btn btn-sm btn-outline-secondary">Export</button></a>
       </div>
       <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
         <span data-feather="calendar"></span>
@@ -49,9 +49,10 @@
         </li>
       </ul>
     <!-- </div> -->
-    <br><br>
+    <br>
     {% if SqlServerConn %}
       {% for enterprise in SqlServerConn %}
+        <h5 style="margin-bottom:15px;">{{enterprise.0.1}}</h5>
         <table class="table table-striped">
           <tr>
             <th>ID Cliente</th>
@@ -84,7 +85,7 @@
               </tr>
           {% endfor %}
         </table>
-        <br><br>
+        <br>
       {% endfor %}
     {% endif %}
   </div>
