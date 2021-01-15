@@ -2,7 +2,7 @@ from .data.secret.credentials import server, username, password
 from django.http.response import HttpResponse
 from openpyxl.utils import get_column_letter
 from .functions.tools import formatDate
-from openpyxl.styles import Alignment
+from openpyxl.styles import Alignment, Font
 from django.shortcuts import render
 from .models import SqlServerConn
 from openpyxl import Workbook
@@ -11,8 +11,7 @@ import pyodbc
 query_cache = []
 
 def reports(request):
-    # clients = get_clients(request)
-    return render(request, 'report/reports.html')#, {'SqlServerConn' : clients})
+    return render(request, 'report/reports.html')
 
 def get_clients(request):
     enterprises = [
@@ -59,6 +58,7 @@ def get_clients(request):
     return render(request, 'report/reports.html', {'SqlServerConn' : result})
 
 def clients_report(request):
+    # OPEN WORKBOOK AND HEADER DETAILS
     wb = Workbook()
     ws = wb.active
     ws['A1'] = f'REPORTE CLIENTES - {formatDate()}'
@@ -73,23 +73,29 @@ def clients_report(request):
     ws['F2'] = 'FECHA ALTA'
     ws['G2'] = 'ESTATUS'
     ws['H2'] = 'BASE DE DATOS'
-    
+
+    # ALIGNMENTS AND DIMENSIONS
     dimensions = [9.57, 22.43, 65, 15.43, 16.14, 16.43, 7.86, 31,86]
     
     ws.row_dimensions[1].height = 26.25
     ws.row_dimensions[2].height = 42.75
 
+    # Vertical and Horizontal aligments & Font size
     ws['A1'].alignment = Alignment(horizontal="left", vertical="center")
+    ws['A1'].alignment = Font(size = "20")
 
     for col in range(8):
         ws.cell(row=2,column=col+1).alignment = Alignment(horizontal="center", vertical="center")
+        ws.cell(row=2,column=col+1).font = Font(size = "16")
 
+    # Column size
     for i, column_width in enumerate(dimensions):
         ws.column_dimensions[get_column_letter(i+1)].width = column_width + 1
 
     global query_cache
     counter = 3
 
+    # CREATE EXCEL
     if len(query_cache) > 0:
         print("\nCREATING EXCEL\n")
         for enterprise in query_cache:
@@ -115,6 +121,7 @@ def clients_report(request):
     else:
         print("\nCACHE EMPTY\n")
 
+    # FILE DETAILS AND FORMAT
     filename = 'Reporte_Clientes.xlsx'
     response = HttpResponse(content_type = 'application/ms-excel')
     content = 'attachment; filename = {0}'.format(filename)
