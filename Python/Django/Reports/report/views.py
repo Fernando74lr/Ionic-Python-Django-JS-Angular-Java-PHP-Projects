@@ -1,9 +1,10 @@
 from .data.secret.credentials import server, username, password
 from django.http.response import HttpResponse
+from openpyxl.utils import get_column_letter
+from .functions.tools import formatDate
 from django.shortcuts import render
 from .models import SqlServerConn
 from openpyxl import Workbook
-import datetime
 import pyodbc
 
 query_cache = []
@@ -59,22 +60,29 @@ def get_clients(request):
 def clients_report(request):
     wb = Workbook()
     ws = wb.active
-    ws['A1'] = 'REPORTE CLIENTES'
+    ws['A1'] = f'REPORTE CLIENTES - {formatDate()}'
     ws.merge_cells('A1:B1')
-    ws['C1'] = datetime.datetime.now()
 
     # DATA
-    ws['A3'] = 'ID CLIENTE'
-    ws['B3'] = 'CORPORACIÓN'
-    ws['C3'] = 'RAZÓN SOCIAL'
-    ws['D3'] = 'RFC'
-    ws['E3'] = 'ID AGENTE VENTA'
-    ws['F3'] = 'FECHA ALTA'
-    ws['G3'] = 'ESTATUS'
-    ws['H3'] = 'BASE DE DATOS'
+    ws['A2'] = 'ID CLIENTE'
+    ws['B2'] = 'CORPORACIÓN'
+    ws['C2'] = 'RAZÓN SOCIAL'
+    ws['D2'] = 'RFC'
+    ws['E2'] = 'ID AGENTE VENTA'
+    ws['F2'] = 'FECHA ALTA'
+    ws['G2'] = 'ESTATUS'
+    ws['H2'] = 'BASE DE DATOS'
+    
+    dimensions = [9.57, 22.43, 65, 15.43, 16.14, 16.43, 7.86, 31,86]
+    
+    ws.row_dimensions[1].height = 26.25
+    ws.row_dimensions[2].height = 42.75
+
+    for i, column_width in enumerate(dimensions):
+        ws.column_dimensions[get_column_letter(i+1)].width = column_width + 1
 
     global query_cache
-    counter = 4
+    counter = 3
 
     if len(query_cache) > 0:
         print("\nCREATING EXCEL\n")
