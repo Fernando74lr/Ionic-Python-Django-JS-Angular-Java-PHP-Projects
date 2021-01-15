@@ -1,7 +1,7 @@
 from .data.secret.credentials import server, username, password
 from django.http.response import HttpResponse
 from openpyxl.utils import get_column_letter
-from .functions.tools import formatDate
+from .functions.tools import format_date, thin_border
 from openpyxl.styles import Alignment, Font, PatternFill
 from django.shortcuts import render
 from .models import SqlServerConn
@@ -61,7 +61,7 @@ def clients_report(request):
     # OPEN WORKBOOK AND HEADER DETAILS
     wb = Workbook()
     ws = wb.active
-    ws['A1'] = f'REPORTE DE CLIENTES - {formatDate()}'
+    ws['A1'] = f'REPORTE DE CLIENTES - {format_date()}'
     ws.merge_cells('A1:C1')
 
     # HEADERS
@@ -91,6 +91,7 @@ def clients_report(request):
         ws.cell(row=2, column=col+1).alignment = Alignment(horizontal="center", vertical="center")
         ws.cell(row=2, column=col+1).fill = PatternFill(start_color="2F75B5", end_color="2F75B5", fill_type = "solid")
         ws.cell(row=2, column=col+1).font = Font(size="16", color="FFFFFF")
+        ws.cell(row=2, column=col+1).border = thin_border
 
     # Column size
     for i, column_width in enumerate(dimensions):
@@ -107,27 +108,35 @@ def clients_report(request):
                 # ID Cliente
                 ws.cell(row=counter, column=1).value = data[2]
                 ws.cell(row=counter, column=1).font = Font(size="12")
+                ws.cell(row=counter, column=1).border = thin_border
                 # Corporación
                 ws.cell(row=counter, column=2).value = data[1]
                 ws.cell(row=counter, column=2).font = Font(size="12")
+                ws.cell(row=counter, column=2).border = thin_border
                 # Razón Social
                 ws.cell(row=counter, column=3).value = data[3]
                 ws.cell(row=counter, column=3).font = Font(size="12")
+                ws.cell(row=counter, column=3).border = thin_border
                 # RFC
                 ws.cell(row=counter, column=4).value = data[4]
                 ws.cell(row=counter, column=4).font = Font(size="12")
+                ws.cell(row=counter, column=4).border = thin_border
                 # ID Agente Venta
                 ws.cell(row=counter, column=5).value = data[7]
                 ws.cell(row=counter, column=5).font = Font(size="12")
+                ws.cell(row=counter, column=5).border = thin_border
                 # Fecha Alta
                 ws.cell(row=counter, column=6).value = str(data[5]).split(' ')[0]
                 ws.cell(row=counter, column=6).font = Font(size="12")
+                ws.cell(row=counter, column=6).border = thin_border
                 # Estatus
                 ws.cell(row=counter, column=7).value = data[6]
                 ws.cell(row=counter, column=7).font = Font(size="12")
+                ws.cell(row=counter, column=7).border = thin_border
                 # Base de datos
                 ws.cell(row=counter, column=8).value = data[0]
                 ws.cell(row=counter, column=8).font = Font(size="12")
+                ws.cell(row=counter, column=8).border = thin_border
 
                 counter+=1
     else:

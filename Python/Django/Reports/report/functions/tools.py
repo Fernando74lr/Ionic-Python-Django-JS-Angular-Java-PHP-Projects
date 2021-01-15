@@ -1,6 +1,12 @@
+from openpyxl.styles import Border, Side
 import datetime
 
-def formatDate():
+thin_border = Border(left=Side(style='thin'), 
+                     right=Side(style='thin'), 
+                     top=Side(style='thin'), 
+                     bottom=Side(style='thin'))
+
+def format_date():
     months = {
         '01' : 'Enero',
         '02' : 'Febrero',
@@ -25,5 +31,5 @@ def formatDate():
             month = value
 
     year = today.strftime('%Y')
-    
+
     return f'{date} DE {month.upper()} DEL {year}'
