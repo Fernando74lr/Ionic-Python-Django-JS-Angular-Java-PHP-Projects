@@ -2,6 +2,7 @@ from .data.secret.credentials import server, username, password
 from django.http.response import HttpResponse
 from openpyxl.utils import get_column_letter
 from .functions.tools import formatDate
+from openpyxl.styles import Alignment
 from django.shortcuts import render
 from .models import SqlServerConn
 from openpyxl import Workbook
@@ -61,7 +62,7 @@ def clients_report(request):
     wb = Workbook()
     ws = wb.active
     ws['A1'] = f'REPORTE CLIENTES - {formatDate()}'
-    ws.merge_cells('A1:B1')
+    ws.merge_cells('A1:C1')
 
     # DATA
     ws['A2'] = 'ID CLIENTE'
@@ -77,6 +78,11 @@ def clients_report(request):
     
     ws.row_dimensions[1].height = 26.25
     ws.row_dimensions[2].height = 42.75
+
+    ws['A1'].alignment = Alignment(horizontal="left", vertical="center")
+
+    for col in range(8):
+        ws.cell(row=2,column=col+1).alignment = Alignment(horizontal="center", vertical="center")
 
     for i, column_width in enumerate(dimensions):
         ws.column_dimensions[get_column_letter(i+1)].width = column_width + 1
