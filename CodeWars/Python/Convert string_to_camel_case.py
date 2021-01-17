@@ -1,9 +1,7 @@
 def to_camel_case(text):
     if '_' in text:
         text = text.replace('_', '-')
-    words = text.split('-')[1:len(text)+1]
-    first = text.split('-')[0]
     res = []
-    for word in words:
+    for word in text.split('-')[1:len(text)+1]:
         res.append(word.capitalize())
-    return first + ''.join(res)
+    return text.split('-')[0] + ''.join(res)
