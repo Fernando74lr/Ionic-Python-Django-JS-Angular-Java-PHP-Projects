@@ -29,12 +29,10 @@ fun main(args: Array<String>) {
         "Now",
         false
     )
-    
     val user = User(
     	"1",
         "Fernando"
     )
-    
 	// Specify which defaul argument we are refering to.
     val otherUser = User(
     	"2",
