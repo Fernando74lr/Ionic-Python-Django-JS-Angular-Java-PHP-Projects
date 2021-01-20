@@ -1,6 +1,32 @@
 from django.shortcuts import render
 from sqlServerConnect.models import sqlServerConn
 import pyodbc
+import os
+from datetime import datetime
+
+def formatDateToFilename():
+    date = getDate()
+    return date.replace(':', '.').replace(' ', '_')
+
+def getDate():
+    # Current Date
+    return str(datetime.now()).split('.')[0]
+
+def createCache(data):
+    file = open(f'sqlServerConnect/cache/{formatDateToFilename()}.txt', 'w')
+    file.write(prepareFile(data))
+    file.close()
+    print('\nFILE CREATED\n')
+
+def prepareFile(data):
+    # Each row represent an enterprise
+    res = ''
+    for i, enterprise in enumerate(data):
+        for client in enterprise:
+            res += str(client)
+        if i + 1 != len(data):
+            res += '\n'
+    return res
 
 def connSql(request):
     enterprises = [
@@ -25,5 +51,8 @@ def connSql(request):
         cursor = conn.cursor()
         cursor.execute("SELECT CIDCLIENTEPROVEEDOR, CRAZONSOCIAL, CRFC FROM admClientes")
         result.append(cursor.fetchall())
+
+    print(result)
+    createCache(result)
 
     return render(request, 'index.html', {'sqlServerConn' : result})
