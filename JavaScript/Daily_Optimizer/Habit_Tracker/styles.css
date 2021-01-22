@@ -1,0 +1,21 @@
+
+#container {
+    border: 1px solid red;
+    height: 200.5px;
+    width: 1450px;
+    margin: 40px 0 0 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.date {
+    border: 1px solid black;
+    height: 22.5px; /*-> 15px o 20px */
+    width: 22.5px; /*-> 15px o 20px */
+    margin: 3px 0 0 3px;
+    border-radius: 3.5px;
+    display: flex;
+    justify-content: center;
+    cursor: context-menu;
+}
