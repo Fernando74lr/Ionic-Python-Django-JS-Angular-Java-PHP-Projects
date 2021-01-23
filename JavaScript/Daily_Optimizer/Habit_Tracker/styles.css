@@ -1,18 +1,21 @@
 
 #container {
-    border: 1px solid red;
-    height: 200.5px;
-    width: 1450px;
-    margin: 40px 0 0 20px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    height: 160px;
+    width: 1000px;
+    /* margin: 40px 0 0 20px; */
+    padding-top: 15px;
+    padding-bottom: 5px;
     display: flex;
     justify-content: center;
-    align-content: center;
+    /* align-content: center; */
 }
 
 .date {
     border: 1px solid black;
-    height: 22.5px; /*-> 15px o 20px */
-    width: 22.5px; /*-> 15px o 20px */
+    height: 15px;
+    width: 15px;
     margin: 3px 0 0 3px;
     border-radius: 3.5px;
     display: flex;
