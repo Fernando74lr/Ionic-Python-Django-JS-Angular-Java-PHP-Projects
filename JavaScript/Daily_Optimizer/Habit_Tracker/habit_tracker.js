@@ -10,7 +10,9 @@ let getDateFormated = (date, month, year) => `${MONTHS[month]} ${date}, ${year}`
 let container = (i) => $(`#container`).append(`<div id="contributions-${i}"></div>`);
 let contribution = (i, date, month, year) => {
     $(`#contributions-${i}`).append(`
-        <div class="date" data-toggle="tooltip" title="${getDateFormated(date, month, year)}">
+        <div class="date" data-toggle="tooltip" 
+        style='background-color:${date == 1?'green':'white'};'
+        title="${getDateFormated(date, month, year)}">
             
         </div>
     `);   
@@ -30,7 +32,7 @@ function getSundayDate(date, year, month) {
                 month--;
             } else {
                 month = 12;
-                year--;
+                // year--;
             }
             date = MONTHS[month - 1];
         }
@@ -43,7 +45,7 @@ function printContributions() {
     let day = TODAY.getDay();
     let date = TODAY.getDate();
     let month = TODAY.getMonth();
-    let year = TODAY.getFullYear() - 1;
+    let year = TODAY.getFullYear()-1;
     let sunDate = getSundayDate(date, year, month) + (day == 0 ? 7 : 0);
     if (sunDate > DAY_MONTHS[month]) {
         sunDate -= DAY_MONTHS[month];
@@ -52,6 +54,7 @@ function printContributions() {
     for (let i = 0; i < 53; i++) {
         container(i);
         for (let j = 0; j < 7; j++) {
+            // debugger;
             if (count != (365 + day)) {
                 if (sunDate != DAY_MONTHS[month]) {
                     // New day
@@ -59,15 +62,16 @@ function printContributions() {
                 } else {
                     // New month
                     sunDate = 1;
-                    month + 1 == 12 ? month = 0 : month++;
+                    if (month + 1 == 12) {
+                        // New Year
+                        month = 0;
+                        year++;  
+                    } else {
+                        month++;
+                    }
                 }
                 count++;
                 contribution(i, sunDate, month, year);
-            } else {
-                // New year
-                sunDate = 0;
-                month = 0;
-                year++;
             }
         }
     }
