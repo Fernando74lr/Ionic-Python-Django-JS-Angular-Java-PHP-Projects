@@ -11,7 +11,7 @@ let container = (i) => $(`#container`).append(`<div id="contributions-${i}"></di
 let contribution = (i, date, month, year) => {
     $(`#contributions-${i}`).append(`
         <div class="date" data-toggle="tooltip" title="${getDateFormated(date, month, year)}">
-            ${date}
+            
         </div>
     `);   
 }
