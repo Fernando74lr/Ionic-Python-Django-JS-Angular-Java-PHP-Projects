@@ -8,12 +8,15 @@ const DAY_MONTHS = [31, FEB, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 // FORMATOS
 let getDateFormated = (date, month, year) => `${MONTHS[month]} ${date}, ${year}`;
 let container = (i) => $(`#container`).append(`<div id="contributions-${i}"></div>`);
-let contribution = (i, date, month, year) => {
+let contribution = (i, date, month, year, count) => {
     $(`#contributions-${i}`).append(`
-        <div class="date" data-toggle="tooltip" 
-        style='background-color:${date == 1?'green':'white'};'
-        title="${getDateFormated(date, month, year)}">
-            
+        <div
+            class="date"
+            data-toggle="tooltip" 
+            style='background-color:${date == 1?'green':'white'};'
+            title="${getDateFormated(date, month, year)}"
+            id="date-${count}">
+
         </div>
     `);   
 }
@@ -47,7 +50,7 @@ function printContributions() {
     let month = TODAY.getMonth();
     let year = TODAY.getFullYear()-1;
     let sunDate = getSundayDate(date, year, month) + (day == 0 ? 7 : 0);
-    if (sunDate > DAY_MONTHS[month]) {
+    if (sunDate > DAY_MONTHS[month]) { 
         sunDate -= DAY_MONTHS[month];
     }
 
@@ -55,7 +58,7 @@ function printContributions() {
         container(i);
         for (let j = 0; j < 7; j++) {
             // debugger;
-            if (count != (365 + day)) {
+            if (count != (365 + day)) { 
                 if (sunDate != DAY_MONTHS[month]) {
                     // New day
                     sunDate++;
@@ -71,7 +74,7 @@ function printContributions() {
                     }
                 }
                 count++;
-                contribution(i, sunDate, month, year);
+                contribution(i, sunDate, month, year, count);
             }
         }
     }
