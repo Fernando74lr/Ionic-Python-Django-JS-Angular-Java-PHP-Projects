@@ -10,4 +10,7 @@ Installed Packages
     - Python 3.8
     - Django
     - Pylint
-    - Pyodbc
+    - Pyodbc (sql server)
+    - Schedule (do jobs at a certain time)
+    - Pylint-Django
+    - Openpyxl (excel)

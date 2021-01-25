@@ -1,2 +1,3 @@
 .vscode/
 .vendor/
+/JavaScript/Firebase_Tests/server-key.json
