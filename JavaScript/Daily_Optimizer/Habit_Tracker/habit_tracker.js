@@ -89,10 +89,8 @@ function printContributions() {
             } else {
                 if (NUMBER_MONTHS.includes(count)) {
                     if (sunDate == DAY_MONTHS[month]) {
-                        if (!drawedMonths.includes(MONTHS[month])) {
-                            nextMonth = MONTHS[month+1];
-                            drawedMonths.push(nextMonth);
-                        }
+                        nextMonth = MONTHS[month+1];
+                        drawedMonths.push(nextMonth);
                         weekDayDiv(i, count, `<span style="padding-left:10px">${nextMonth}</span>`);
                         nextMonth = '';
                     } else {
