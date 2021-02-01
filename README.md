@@ -1,2 +1,2 @@
-# Ionic_Python_JS_Java_Projects
-Little ionic, python, javascript and java projects
+# Ionic-Python-JS-Java-PHP-Projects
+Little ionic, python, javascript, angular, php, django and java projects
