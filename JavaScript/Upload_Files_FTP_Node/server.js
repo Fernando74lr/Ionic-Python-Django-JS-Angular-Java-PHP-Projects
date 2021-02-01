@@ -1,72 +1,81 @@
 // Express
 const express = require('express');
 const app = express();
-// Easy-FTP
-const EasyFTP = require('easy-ftp')
-const ftp = new EasyFTP()
+// FTPS
+const FtpModule = require('ftp');
+// Downloader
+const { DownloaderHelper } = require('node-downloader-helper');
+// File System
+const fs = require('fs').promises;
 
-var config = {
-    host: 'ftp.sabblpq2020.net',
+// FTP Server Credentials
+const config = {
+    host: '---',
     port: 21,
-    username: 'pedregal@lpqcpsistema.com',
-    password: 'xAvz5uzk',
-    type : 'ftp'
+    user: '---',
+    password: '---'
 };
 
-let response;
-
-function uploadFile(url, id, filename) {
-  
-  // Connect to the server
-  ftp.connect(config);
-  
-  // Upload file
-  try {
-    console.log("UPLOADING...");
-    ftp.upload(url, "Test/"+filename, function(err) {
-      if (err) {
-        console.log('\nERROR :(\n');
-        // throw err;
-      } else {
-        console.log("FILE UPLOADED ✅" + '\n');
-      }
-      ftp.close();
-    });
-  } catch (error) {
-    console.log(error);
-  }
-  
+// Download File From URL
+function downloadFile(url) {
+    const download = new DownloaderHelper(url, __dirname);
+    download.on('end', () => console.log('DOWNLOAD COMPLETED ✅'));
+    download.start();
 }
-// C:/Users/Fer/Desktop/Temporal/Bash-Cheat-Sheet.pdf
-// C:\Users\Fer\Desktop\Temporal\Bash-Cheat-Sheet.pdf
-// URL: {...}/urlparam?url_file=${URL_PARAM}}&id_caso=${ID_CASO}
-app.post('/urlparam', (req, res) => {
-  let result;
-  // console.log(req.query.url_file);
-  if (req.query) {
-    let url = req.query.url_file;
-    let id = req.query.id_caso;
-    let filename = url.split('/').pop();
+
+// Upload File to FTP Server
+function uploadFile(filename) {
+    const ftp = new FtpModule();
+    ftp.connect(config);
+    ftp.on('ready', function() {
+        ftp.put(`${__dirname}/${filename}`, `Test/${filename}`, function(err) {
+            if (err) throw err;
+            else console.log("FILE UPLOADED ✅");
+            ftp.end();
+        });
+    });
+}
+
+function deleteLocalFile(filename) {
+    setTimeout(() => {
+    fs.unlink(`${__dirname}/${filename}`)
+        .then(console.log("FILE REMOVED ✅"))
+        .catch(err => console.error('Something wrong happened removing the file', err));
+    }, 4000);
+}
+
+// Just Print Data
+function printData(url, id, filename) {
     console.log('\nURL: ' + url + '\nID: ' + id + '\nFILENAME: '+ filename + '\n');
-    try {
-      uploadFile(url, id, filename);
-    } catch (error) {
-      console.log('ERROR IN ROUTE\n' + error);
+}
+
+// Route to uploadFile. Example: .../uploadFile?url_file=${URL_FILE}}&id_caso=${ID_CASO}
+app.post('/uploadFile', async (req, res) => {
+    let url;
+    let id ;
+    let filename;
+    if (req.query) {
+      url = req.query.url_file;
+      id = req.query.id_caso;
+      filename = url.split('/').pop();
+      printData(url, id, filename);
+      await downloadFile(url);
+      await uploadFile(filename);
+      await deleteLocalFile(filename);
+      console.log('\n');
+      res.json({
+        res: 'ok',
+        id: id,
+        url: url,
+        file: filename
+      });
+    } else {
+        res.json({
+        res: 'error :('
+      });
     }
-  } else {
-    response = "Something went wrong...";
-  }
-  // console.log(response);
-  res.json({
-    res: 'ok'
-  });
-  // res.send(req.query);
 });
 
-
-// Listen to the App Engine-specified port, or 8080 otherwise
+// Server PORT
 const PORT = process.env.PORT || 8080;
-
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}...`);
-});
+app.listen(PORT, () => console.log(`Server listening on port: ${PORT}...`));
