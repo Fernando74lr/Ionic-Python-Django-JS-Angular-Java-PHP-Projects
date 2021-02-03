@@ -1,3 +1,4 @@
 .vscode/
 .vendor/
 /JavaScript/Firebase_Tests/server-key.json
+/Python/Django/dailyOptimizer/core/static
