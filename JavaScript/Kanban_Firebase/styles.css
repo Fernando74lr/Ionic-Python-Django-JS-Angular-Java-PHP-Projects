@@ -1,0 +1,17 @@
+#container {
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center;  */
+    flex-direction: column;
+}
+
+#kanban_container {
+    margin-top: 5%;
+    /* border: 1px solid red; */
+}
+
+.add-card {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
