@@ -32,93 +32,94 @@ $('#emoji').html(getDayMoment()[1]);
 // Kanban
 let column = '';
 let card = 0;
-var deployKanbanBoard = function () {
-	var KanbanTest = new jKanban({
-		element: '#kanban_board',
-		gutter: '0',
-		widthBoard: '250px',
-		click: function (el) {
-			// alert(el.innerHTML);
-			console.log(el.dataset);
-			console.log(el.parentElement.parentElement.getAttribute('data-id'));
-		},
-		dropEl: function (el, target, source, sibling) {
-			column = target.parentElement.getAttribute('data-id');
-		},
-		buttonClick: function (el, boardId) {
-			// Create a form to enter element
-			var formItem = document.createElement("form");
-			formItem.setAttribute("class", "itemform");
-			formItem.innerHTML =
-				'<div class="form-group"><textarea class="form-control" rows="2" autofocus></textarea></div><div class="form-group"><button type="submit" class="btn btn-primary btn-xs pull-right">Submit</button><button type="button" id="CancelBtn" class="btn btn-default btn-xs pull-right">Cancel</button></div>';
 
-			KanbanTest.addForm(boardId, formItem);
-			formItem.addEventListener("submit", function (e) {
-				e.preventDefault();
-				var text = e.target[0].value;
-                if (text.length > 0) {
-                    column = e.target.parentElement.parentElement.dataset.id;
-                    KanbanTest.addElement(boardId, {
-                        id: card,
-                        title: text,
-                        class: changeColorBtn(),
-                        dragend: function (e) {
-                            let element = $(`[data-eid=${e.dataset.eid}]`);
-                            element.removeAttr('data-class');
-                            element.attr('data-class', changeColorBtn());
-                        }
-                        // Add getCurrentDate() to Firebase
-                        // Add getCurrentTime() to Firebase
-                    });
-    
-                    card++;
-    
-                    formItem.parentNode.removeChild(formItem);
-                }
-			});
-			document.getElementById("CancelBtn").onclick = function () {
-				formItem.parentNode.removeChild(formItem);
-			};
-		},
-		itemAddOptions: {
-			enabled: true,
-			content: '+ Add New Card',
-			class: 'custom-button btn font-weight-bold btn-light-primary add-card',
-			footer: true
-		},
-		boards: [
-            {
-				'id': '_todo',
-				'title': 'To Do',
-				'class': 'light-primary',
-				'dragTo': ['_working'],
-				'item' : [
-					{
-                        id: 'test',
-						'class': 'primary',
-                        title: 'PRUEBA'
+var KanbanTest = new jKanban({
+	element: '#kanban_board',
+	gutter: '0',
+	widthBoard: '250px',
+	click: function (el) {
+		// alert(el.innerHTML);
+		console.log(el.dataset);
+		console.log(el.parentElement.parentElement.getAttribute('data-id'));
+		modal(el.dataset)
+	},
+	dropEl: function (el, target, source, sibling) {
+		column = target.parentElement.getAttribute('data-id');
+	},
+	buttonClick: function (el, boardId) {
+		// Create a form to enter element
+		var formItem = document.createElement("form");
+		formItem.setAttribute("class", "itemform");
+		formItem.innerHTML =
+			'<div class="form-group"><textarea class="form-control" rows="2" autofocus></textarea></div><div class="form-group"><button type="submit" class="btn btn-primary btn-xs pull-right">Submit</button><button type="button" id="CancelBtn" class="btn btn-default btn-xs pull-right">Cancel</button></div>';
+
+		KanbanTest.addForm(boardId, formItem);
+		formItem.addEventListener("submit", function (e) {
+			e.preventDefault();
+			var text = e.target[0].value;
+			if (text.length > 0) {
+				column = e.target.parentElement.parentElement.dataset.id;
+				KanbanTest.addElement(boardId, {
+					id: card,
+					title: text,
+					class: changeColorBtn(),
+					dragend: function (e) {
+						let element = $(`[data-eid=${e.dataset.eid}]`);
+						element.removeAttr('data-class');
+						element.attr('data-class', changeColorBtn());
 					}
-				]
-			},
-			{
-				'id': '_working',
-				'title': 'Working',
-				'class': 'light-warning',
-			},
-			{
-				'id': '_done',
-				'title': 'Done',
-				'class': 'light-success',
-				'dragTo': ['_working'],
-			},
-			{
-				'id': '_notes',
-				'title': 'Notes',
-				'class': 'light-danger',
+					// Add getCurrentDate() to Firebase
+					// Add getCurrentTime() to Firebase
+				});
+
+				card++;
+
+				formItem.parentNode.removeChild(formItem);
 			}
-		]
-	});
-}
+		});
+		document.getElementById("CancelBtn").onclick = function () {
+			formItem.parentNode.removeChild(formItem);
+		};
+	},
+	itemAddOptions: {
+		enabled: true,
+		content: '+ Add New Card',
+		class: 'custom-button btn font-weight-bold btn-light-primary add-card',
+		footer: true
+	},
+	boards: [
+		{
+			'id': '_todo',
+			'title': 'To Do',
+			'class': 'light-primary',
+			'dragTo': ['_working'],
+			'item' : [
+				{
+					id: 'test',
+					'class': 'primary',
+					title: 'PRUEBA'
+				}
+			]
+		},
+		{
+			'id': '_working',
+			'title': 'Working',
+			'class': 'light-warning',
+		},
+		{
+			'id': '_done',
+			'title': 'Done',
+			'class': 'light-success',
+			'dragTo': ['_working'],
+		},
+		{
+			'id': '_notes',
+			'title': 'Notes',
+			'class': 'light-danger',
+		}
+	]
+});
+
 
 function changeColorBtn() {
 	switch (column) {
@@ -133,4 +134,25 @@ function changeColorBtn() {
 	}
 }
 
-deployKanbanBoard();
+var removeElement = (id) => KanbanTest.removeElement(id);
+
+function modal(element) {
+	Swal.fire({
+		title: element.eid,
+		text: "You won't be able to revert this!",
+		icon: 'info',
+		showCancelButton: true,
+		confirmButtonColor: '#d33',
+		cancelButtonColor: '#3085d6',
+		confirmButtonText: 'Delete'
+	  }).then((result) => {
+		if (result.isConfirmed) {
+			removeElement(element.eid,);
+			Swal.fire(
+				'Deleted!',
+				'The task has been deleted.',
+				'success'
+			);
+		}
+	  });
+}
