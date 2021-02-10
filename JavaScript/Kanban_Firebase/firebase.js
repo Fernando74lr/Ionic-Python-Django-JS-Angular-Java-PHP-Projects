@@ -20,7 +20,7 @@ var config = {
 firebase.initializeApp(config);
 
 // Get a reference to the database service
-var database = firebase.database();
+var database = firebase.database().ref().child('elements');
 
 function writeElementData(elementId, text, date_created, time_created) {
     firebase.database().ref('elements/element' + elementId).set({
