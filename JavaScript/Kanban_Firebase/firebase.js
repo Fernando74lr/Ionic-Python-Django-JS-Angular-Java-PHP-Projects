@@ -22,16 +22,16 @@ firebase.initializeApp(config);
 // Get a reference to the database service
 var database = firebase.database().ref().child('elements');
 
-database.on('value',function(snapshot){
+// database.on('value',function(snapshot){
 
-    snapshot.forEach(function(childSnapshot) {
+//     snapshot.forEach(function(childSnapshot) {
 
-        console.log(childSnapshot.key)
+//         console.log(childSnapshot.key)
 
-        console.log(childSnapshot.val())
-    })
+//         console.log(childSnapshot.val())
+//     })
 
-})
+// })
 
 // function writeElementData(elementId, text, date_created, time_created) {
 //     database.ref('elements/element' + elementId).set({
