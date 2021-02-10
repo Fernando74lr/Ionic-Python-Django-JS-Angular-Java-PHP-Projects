@@ -32,4 +32,4 @@ function writeElementData(elementId, text, date_created, time_created) {
     console.log('ELEMENT CREATED');
 }
 
-// writeElementData('1', 'This is a test', '08-02-2021', '23:23');
+writeElementData('1', 'This is a test', '08-02-2021', '23:23');
