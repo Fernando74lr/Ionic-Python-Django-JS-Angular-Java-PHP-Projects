@@ -1,12 +1,12 @@
 
-var admin = require("firebase-admin");
+// var admin = require("firebase-admin");
 
-var serviceAccount = require("secret/apiKey/simple-kanban-board-firebase-adminsdk-gu08s-3d2e8866a6.json");
+// var serviceAccount = require("secret/apiKey/simple-kanban-board-firebase-adminsdk-gu08s-3d2e8866a6.json");
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://simple-kanban-board-default-rtdb.firebaseio.com"
-});
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+//   databaseURL: "https://simple-kanban-board-default-rtdb.firebaseio.com"
+// });
 
 // Firebase Credentials
 var config = {
