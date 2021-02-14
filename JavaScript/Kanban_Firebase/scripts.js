@@ -50,8 +50,19 @@ var KanbanTest = new jKanban({
 		// Create a form to enter element
 		var formItem = document.createElement("form");
 		formItem.setAttribute("class", "itemform");
-		formItem.innerHTML =
-			'<div class="form-group"><textarea class="form-control" rows="2" autofocus></textarea></div><div class="form-group"><button type="submit" class="btn btn-primary btn-xs pull-right">Submit</button><button type="button" id="CancelBtn" class="btn btn-default btn-xs pull-right">Cancel</button></div>';
+		formItem.innerHTML =`
+			<div class="form-group">
+				<textarea class="form-control" id="text-card" rows="2" autofocus></textarea>
+			</div>
+			<div class="form-group">
+				<button type="submit" id="add-card" class="btn btn-primary btn-xs pull-right">
+					Submit
+				</button>
+				<button type="button" id="CancelBtn" class="btn btn-default btn-xs pull-right">
+					Cancel
+				</button>
+			</div>
+		`;
 
 		KanbanTest.addForm(boardId, formItem);
 		formItem.addEventListener("submit", function (e) {
@@ -71,6 +82,8 @@ var KanbanTest = new jKanban({
 					// Add getCurrentDate() to Firebase
 					// Add getCurrentTime() to Firebase
 				});
+
+				addCard(card, text);
 
 				card++;
 
