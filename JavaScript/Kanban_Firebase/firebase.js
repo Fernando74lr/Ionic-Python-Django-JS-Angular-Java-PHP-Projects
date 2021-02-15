@@ -62,6 +62,3 @@ function addCard(id, text) {
 }
 
 
-// Add data
-// function storeUser(name, email) {
-
