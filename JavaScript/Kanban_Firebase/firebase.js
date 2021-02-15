@@ -67,6 +67,3 @@ function addCard(id, text) {
 //     db.collection("users").add({
 //         name: name,
 //         email: email,
-//     })
-//     .then(function(docRef) {
-//         console.log("Document written with ID: ", docRef.id);
