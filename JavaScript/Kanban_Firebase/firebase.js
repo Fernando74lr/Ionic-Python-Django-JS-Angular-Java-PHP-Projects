@@ -64,6 +64,4 @@ function addCard(id, text) {
 
 // Add data
 // function storeUser(name, email) {
-//     db.collection("users").add({
-//         name: name,
-//         email: email,
+
