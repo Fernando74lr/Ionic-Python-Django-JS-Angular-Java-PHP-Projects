@@ -60,5 +60,3 @@ function addCard(id, text) {
         });
     }
 }
-
-
