@@ -44,19 +44,38 @@ btnLogin.click(e => {
     });
 });
 
+let cards = [];
+
+function saveCards(data) {
+    cards.push(data);
+}
+
+// Get cards
+function getCards() {
+    return firestore.collection(`users/Fernando López Ramírez/tasks`).get();
+        // .then((tasks) => {
+        //     tasks.forEach((subDoc) => {
+        //         // console.log(subDoc.data());
+        //         saveCards(subDoc.data());
+        //     });
+        // });
+}
+
+console.log(getCards());
+console.log(cards);
+// cards.length > 0 ? console.log("SÍ") : console.log("NO");
+
 // Add a new card
-function addCard(id, text) {
-    if ($('#add-card')) {
-        $('#add-card').click(e => {
-            firestore.doc(`users/Fernando López Ramírez/tasks/${id}`).set({
-                description: text,
-                date_created: getCurrentDate(),
-                time_created: getCurrentTime()
-            }).then(() => {
-                console.log('Task created')
-            }).catch((error) => {
-                console.log('Got an error adding the task', error);
-            });
-        });
-    }
+function addCard(id, text, board) {
+    firestore.doc(`users/Fernando López Ramírez/tasks/${id}`).set({
+        id: id,
+        current_board: board,
+        description: text,
+        date_created: getCurrentDate(),
+        time_created: getCurrentTime()
+    }).then(() => {
+        console.log('Task created')
+    }).catch((error) => {
+        console.log('Got an error adding the task', error);
+    });
 }
