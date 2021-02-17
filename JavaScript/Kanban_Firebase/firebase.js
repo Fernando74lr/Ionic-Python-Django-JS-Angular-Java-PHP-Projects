@@ -44,29 +44,83 @@ btnLogin.click(e => {
     });
 });
 
-let cards = [];
-
-function saveCards(data) {
-    cards.push(data);
-}
-
+let tasksList = [];
+let tasksDatetimes = [];
+let tasksIds = [];
 // Get cards
 function getCards() {
-    return firestore.collection(`users/Fernando López Ramírez/tasks`).get();
-        // .then((tasks) => {
-        //     tasks.forEach((subDoc) => {
-        //         // console.log(subDoc.data());
-        //         saveCards(subDoc.data());
-        //     });
-        // });
+    let cards = [];
+    let datetimes = [];
+    let ids = [];
+    firestore.collection(`users/Fernando López Ramírez/tasks`).get()
+        .then((tasks) => {
+            tasks.forEach((subDoc) => {
+                // console.log(subDoc.data());
+                cards.push({
+                    id: subDoc.data().id,
+                    title: subDoc.data().description,
+                    class: subDoc.data().current_board,
+                    dragend: function (e) {
+                        let element = $(`[data-eid=${e.dataset.eid}]`);
+                        console.log("Change color " + changeColorBtn());
+                        element.removeAttr('data-class');
+                        element.attr('data-class', changeColorBtn());
+                        updateBoard(subDoc.data().id, changeColorBtn());
+                    }
+                });
+                datetimes.push({
+                    id: subDoc.data().id,
+                    date_created: subDoc.data().date_created,
+                    time_created: subDoc.data().time_created
+                });
+                ids.push(subDoc.data().id);
+            });
+            // console.log(cards);
+            tasksList = cards;
+            tasksDatetimes = datetimes;
+            tasksIds = ids;
+        });
 }
 
-console.log(getCards());
-console.log(cards);
-// cards.length > 0 ? console.log("SÍ") : console.log("NO");
+function updateBoard(id, new_board) {
+    firestore.collection(`users/Fernando López Ramírez/tasks`).doc(id.toString())
+        .update({
+            current_board: new_board
+        });
+}
+
+function deleteTask(id) {
+    let index = tasksIds.indexOf(parseInt(id));
+    if (index > -1) {
+        tasksIds.splice(index, 1);
+        console.log("Removed id " + 2 + " -> ", tasksIds);
+    }
+    firestore.collection(`users/Fernando López Ramírez/tasks`).doc(id)
+        .delete()
+        .then(console.log(`Document with id '${id}' was successfully deleted!`))
+        .catch((error) => console.error("Error removing document: ", error));
+}
+
+let sizeTasks = 0;
+getCards();
+setTimeout(() => {
+    let todoList = tasksList.filter(task => task.class === "primary");
+    let workingList = tasksList.filter(task => task.class === "warning");
+    let successList = tasksList.filter(task => task.class === "success");
+    let notesList = tasksList.filter(task => task.class === "danger");
+    sizeTasks = tasksList.length;
+    console.log('tasksIds', tasksIds);
+    console.log('tasksDatetimes', tasksDatetimes);
+    console.log('sizeTasks', sizeTasks);
+    console.log('tasksList', tasksList);
+    kanbanBoard(todoList, workingList, successList, notesList);
+}, 1300);
 
 // Add a new card
-function addCard(id, text, board) {
+function addCard(text, board) {
+    let id = Math.max.apply(null, tasksIds) + 1;
+    tasksIds.push(id);
+    console.log("New id", tasksIds);
     firestore.doc(`users/Fernando López Ramírez/tasks/${id}`).set({
         id: id,
         current_board: board,
@@ -74,7 +128,11 @@ function addCard(id, text, board) {
         date_created: getCurrentDate(),
         time_created: getCurrentTime()
     }).then(() => {
-        console.log('Task created')
+        console.log('Task created', {
+            id: id,
+            current_board: board,
+            description: text,
+        })
     }).catch((error) => {
         console.log('Got an error adding the task', error);
     });
