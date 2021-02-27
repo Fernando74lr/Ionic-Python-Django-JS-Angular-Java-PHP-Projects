@@ -38,7 +38,7 @@ carService.addCar(car3);
 carService.addCar(car4);
 
 
-/* Destructuring
+Destructuring
     [...rest] = carService.getAllCars();
 
     const allCars = carService.getAllCars();
@@ -50,7 +50,6 @@ carService.addCar(car4);
     newArray.push(...allCars);
 
     const {brand, model, year} = car1; // Instead of "const carBrand = car1.brand; const carModel = car1.model; ..."
-*/
 
 /* Arrow functions transformations 
     const getName2 = name => name;
