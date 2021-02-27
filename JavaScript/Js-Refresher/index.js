@@ -5,11 +5,11 @@ const CarService = require('./services/CarService.js');
 const carService = new CarService('SuperCars', 'Spain, Malaga');
 
 // PROMISES
-// carService.getSecretsDocuments().then((superSecretDocuments) => {
-//     console.log(superSecretDocuments);
-// }).catch((err) => {
-//     console.log(err);
-// });
+carService.getSecretsDocuments().then((superSecretDocuments) => {
+        console.log(superSecretDocuments);
+    }).catch((err) => {
+    console.log(err);
+});
 
 const docObservable = carService.getSecretsDocuments();
 
