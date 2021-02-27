@@ -23,7 +23,7 @@ docObservable.subscribe({
     complete: () => {}
 })
 
-/*
+
 const car1 = new Car();
 const car2 = new Car('ford', 'fiesta', 2000);
 const car3 = new Car('fiat', 'punto', 2011);
@@ -36,7 +36,7 @@ carService.addCar(car1);
 carService.addCar(car2);
 carService.addCar(car3);
 carService.addCar(car4);
-*/
+
 
 /* Destructuring
     [...rest] = carService.getAllCars();
