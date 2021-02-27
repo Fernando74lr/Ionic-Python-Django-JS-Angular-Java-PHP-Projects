@@ -51,6 +51,5 @@ Destructuring
 
     const {brand, model, year} = car1; // Instead of "const carBrand = car1.brand; const carModel = car1.model; ..."
 
-/* Arrow functions transformations 
-    const getName2 = name => name;
-*/
+// Arrow functions transformations 
+const getName2 = name => name;
