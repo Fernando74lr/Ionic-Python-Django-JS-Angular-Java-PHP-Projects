@@ -19,9 +19,7 @@ function solution(string) {
         
         while() {
         
-        }
-       for (let k=0; k<a.length; k++) {
-           res = string.split(a[k])
+      lit(a[k])
        }*/
     }
     
