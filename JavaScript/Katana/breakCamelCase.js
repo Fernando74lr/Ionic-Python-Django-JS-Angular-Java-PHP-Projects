@@ -21,8 +21,7 @@ function solution(string) {
         
         }
        for (let k=0; k<a.length; k++) {
-           res = string.split(a[k]);
-
+           res = string.split(a[k])
        }*/
     }
     
