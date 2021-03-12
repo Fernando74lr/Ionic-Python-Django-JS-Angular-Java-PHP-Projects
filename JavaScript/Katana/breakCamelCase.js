@@ -10,7 +10,8 @@ function solution(string) {
               }
           }
         }
-                a = string.split("");
+        
+    a = string.split("");
     
         console.log(e.join("").toString());
         return e.join("");
@@ -21,9 +22,7 @@ function solution(string) {
         }
        for (let k=0; k<a.length; k++) {
            res = string.split(a[k]);
-           if (res.length > 1) {
-              
-           }
+
        }*/
     }
     
