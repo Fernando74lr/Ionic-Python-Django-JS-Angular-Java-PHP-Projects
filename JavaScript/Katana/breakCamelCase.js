@@ -17,9 +17,6 @@ function solution(string) {
         return e.join("");
         /*let res = [];
         
-        while() {
-        
-      lit(a[k])
-       }*/
+        while()
     }
     
