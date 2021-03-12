@@ -15,6 +15,5 @@ function solution(string) {
     
         console.log(e.join("").toString());
         return e.join("");
-        /*let res = [];
     }
     
