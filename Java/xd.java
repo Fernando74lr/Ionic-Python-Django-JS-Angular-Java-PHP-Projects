@@ -1,4 +1,4 @@
-public class xd {
+public class Xd {
     // Split the str by commas function
     static String[] getValues(String str) {
         return str.split("[,]", 0);
