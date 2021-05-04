@@ -12,3 +12,7 @@ Project Setup for Android Studio Development.
 	*(Use this one every time you make a change, not the one before)*
 	Run the following:
 		ionic capacitor copy android
+
+4.- Open Ionic android folder in Android Studio.
+	Run the following (in the source code of the project):
+		npx cap open android
