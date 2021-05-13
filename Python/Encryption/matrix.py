@@ -1,5 +1,4 @@
 import numpy as np
-
 # CONDA: conda install numpy
 # PIP: pip install numpy
 
