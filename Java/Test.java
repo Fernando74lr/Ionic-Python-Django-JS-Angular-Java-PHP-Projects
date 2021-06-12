@@ -1,6 +1,5 @@
 
 public class Test {
-
     // Split the str by commas
     static String[] getValues(String str) {
         return str.split("[,]", 0);
