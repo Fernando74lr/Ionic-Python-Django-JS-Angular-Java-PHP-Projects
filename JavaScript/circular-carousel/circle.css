@@ -1,0 +1,209 @@
+/* Font Source Sans Light */
+@import url("https://use.typekit.net/sph7ggo.css");
+
+.sans-font-light {
+    font-family: source-sans-pro, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.holderCircle {
+	width: 600px;
+	height: 600px;
+	border-radius: 100%;
+	margin: 60px auto;
+	position: relative;
+	border: 1px solid red;
+}
+
+.title-dot {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	width: 100px;
+	border: 1px solid #6F83D4;
+	border-radius: 15px;
+	color: #6F83D4;
+	height: 20px;
+	font-size: 20px;
+}
+
+.dotCircle {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 100%;
+	z-index: 20;
+}
+
+.dotCircle .itemDot {
+	display: block;
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	/* background:#ddd; */
+	color: #fff;
+	border-radius: 100%;
+	text-align: center;
+	line-height: 80px;
+	font-size: 30px;
+	z-index: 3;
+	cursor: pointer;
+}
+
+.dotCircle .itemDot::after {
+	content: "";
+	width: 82px;
+	height: 82px;
+	position: absolute;
+	border-radius: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 2;
+	/* border:3px solid #fff; */
+}
+
+.dotCircle .itemDot .forActive {
+	width: 56px;
+	height: 56px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: none;
+}
+
+.dotCircle .itemDot .forActive::after {
+	content: '';
+	width: 5px;
+	height: 5px;
+	border: 3px solid #FE9290;
+	bottom: -31px;
+	left: -14px;
+	filter: blur(1px);
+	position: absolute;
+	border-radius: 100%;
+}
+
+.dotCircle .itemDot .forActive::before {
+	content: '';
+	width: 6px;
+	height: 6px;
+	filter: blur(5px);
+	top: -15px;
+	position: absolute;
+	transform: rotate(-45deg);
+	border: 6px solid #F48E2A;
+	right: -39px;
+}
+
+.dotCircle .itemDot.active .forActive {
+	display: block;
+}
+
+.contentCircle {
+	width: 250px;
+	height: 250px;
+	border-radius: 100%;
+	background: url(../img/bgcircle.png) no-repeat;
+	color: #fff;
+	position: relative;
+	top: 137px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	box-shadow: 0px 0px 69px 1px #2b152e;
+	margin: auto;
+}
+
+.contentCircle .CirItem {
+	border-radius: 100%;
+	color: #fff;
+	position: absolute;
+	text-align: center;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	transform: scale(0);
+	transition: 0.5s;
+	font-weight: bold;
+	font-size: 13px;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	margin: auto;
+	background: #00000054;
+	line-height: 250px;
+}
+
+.CirItem.active {
+	z-index: 1;
+	opacity: 1;
+	transform: scale(1);
+	transition: 0.5s;
+}
+
+.contentCircle .CirItem1 {
+	background: rgba(255, 176, 72, 0.83);
+}
+
+.contentCircle .CirItem1::after,
+.contentCircle .CirItem2::after,
+.contentCircle .CirItem3::after,
+.contentCircle .CirItem4::after,
+.contentCircle .CirItem5::after,
+.contentCircle .CirItem6::after,
+.contentCircle .CirItem7::after,
+.contentCircle .CirItem8::after,
+.contentCircle .CirItem9::after,
+.contentCircle .CirItem10::after {
+	content: '';
+	width: 50%;
+	height: 100%;
+	border-bottom-left-radius: 250px;
+	border-top-left-radius: 250px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	background: rgba(0, 0, 0, 0.33);
+}
+
+@media only screen and (min-width: 300px) and (max-width: 599px) {
+	.holderCircle {
+		width: 300px;
+		height: 300px;
+		margin: 110px auto;
+	}
+	.holderCircle::after {
+		width: 100%;
+		height: 100%;
+	}
+	.dotCircle {
+		width: 100%;
+		height: 100%;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+	}
+}
+
+@media only screen and (min-width: 600px) and (max-width: 767px) {}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {}
+
+@media only screen and (min-width: 1200px) and (max-width: 1499px) {}
+
+@media only screen and (min-width: 1500px) {}
